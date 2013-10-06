@@ -27,15 +27,12 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-a {
+a, a:hover {
   color: $lgrey;
   text-decoration: none;
 }
 
-a:hover {
-  color: $dgrey;
-  text-decoration: none;
-}
+sup { font-size: 0.6em; }
 
 .main {
   height: 100%;
