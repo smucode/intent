@@ -1,0 +1,72 @@
+$iconSpritePath: "../images/glyphicons-halflings.png";
+$iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
+
+@import "bootstrap-sass/lib/bootstrap";
+
+/* Put your CSS here */
+
+$lgrey: #ECF0F1;
+$dgrey: #666;
+$lblue: #3498DB;
+$lred:  #E74C3C;
+$green: #27AE60;
+
+$bg:  $lgrey;
+$cbg: white;
+$hbg: #D35400;
+$hfg: $lgrey;
+
+html, body {
+  margin: 0px;
+  height: 100%;
+}
+
+body {
+  color: $dgrey;
+  background: $bg;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: $lgrey;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $dgrey;
+  text-decoration: none;
+}
+
+.main {
+  height: 100%;
+  margin: 0 auto;
+  max-width: 940px;
+  background: white;
+}
+
+.header {
+  color: $hfg;
+  width: 100%;
+  display: table;
+  background: $hbg;
+  text-align: center;
+  vertical-align: middle;
+
+  h1 {
+    font-size: 1.5em;
+    display: table-cell;
+    font-weight: normal;
+    line-height: inherit;
+    vertical-align: middle;
+  }
+
+  a {
+    padding: 10px;
+    display: inline-block;
+  }
+
+  >:nth-child(1) { float: left; }
+  >:nth-child(3) { float: right; }
+}
+
+
