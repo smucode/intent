@@ -11,6 +11,14 @@ angular.module('sportsideApp', [])
         templateUrl: 'views/create-intent.html',
         controller: 'CreateIntentCtrl'
       })
+      .when('/select-activity', {
+        templateUrl: 'views/select-activity.html',
+        controller: 'SelectActivityCtrl'
+      })
+      .when('/select-date', {
+        templateUrl: 'views/select-date.html',
+        controller: 'SelectDateCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

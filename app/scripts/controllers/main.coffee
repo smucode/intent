@@ -9,10 +9,16 @@ angular.module('sportsideApp')
     # 2. <Activity>
       # I want to <play squash> / Stig Murberg wants to <play squash>
       # I am <playing squash> / Stig Murberg is <playing squash>
+
+
+    # 4- <Date>
+      # I want to <play squash> <today>
+
+
     # 3- <Location>
       # I want to <play squash> at <Lysaker Squash>
-    # 4- <Date>
-      # I want to <play squash> at <Lysaker Squash>, <today>
+
+
     # 5- <Other Participants>
       # I am <playing squash> with <Oddiz>
     # 6- Comment

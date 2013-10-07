@@ -5,6 +5,12 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
 /* Put your CSS here */
 
+// *, *:before, *:after {
+//   box-sizing: border-box;
+//   -moz-box-sizing: border-box;
+//   -webkit-box-sizing: border-box;
+// }
+
 $lgrey: #ECF0F1;
 $dgrey: #666;
 $lblue: #3498DB;
@@ -33,7 +39,14 @@ a, a:hover {
   text-decoration: none;
 }
 
-sup { font-size: 0.6em; }
+h2 {
+  margin: 0;
+  color: white;
+  font-size: 1em;
+  padding: 0 10px;
+  font-weight: normal;
+  background: #E67E22;
+}
 
 .main {
   height: 100%;
@@ -60,6 +73,10 @@ nav .header {
     vertical-align: middle;
   }
 
+  sup {
+    font-size: 0.6em;
+  }
+
   a {
     padding: 10px;
     display: inline-block;
@@ -79,5 +96,18 @@ nav .header {
      padding: 10px;
      cursor: pointer;
      border-bottom: 1px solid #eee;
+  }
+}
+
+.create-intent {
+  a {
+    color: white;
+    padding: 20px;
+    display: block;
+    font-size: 2em;
+    text-align: center;
+    border-radius: 5px;
+    background: #E74C3C;
+    margin: 40px 40px 0 40px;
   }
 }

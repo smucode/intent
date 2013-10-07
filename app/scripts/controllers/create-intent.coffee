@@ -1,9 +1,6 @@
 'use strict'
 
 angular.module('sportsideApp')
-  .controller 'CreateIntentCtrl', ($scope) ->
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate'
-      'AngularJS'
-      'Karma'
-    ]
+  .controller 'CreateIntentCtrl', ($scope, intents) ->
+    $scope.create = (type) ->
+      intents.createNew().type = type

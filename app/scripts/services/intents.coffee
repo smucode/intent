@@ -13,12 +13,18 @@ angular.module('sportsideApp')
       'Therese Løvehjerte is jogging at Frognerparken'
     ]
     rndActs = ->
-      _.reduce [0..Math.floor(Math.random() * 10)], (memo, i) ->
-        memo[i] = text: acts[Math.floor(Math.random() * acts.length)]; memo
+      _.reduce [0..Math.random() * 10 | 0], (memo, i) ->
+        memo[i] = text: acts[Math.random() * acts.length | 0]; memo
       , {}
+
+    pending = {}
 
     fetch: ->
       'Today':     rndActs()
       'Tomorrow':  rndActs()
       'Tuesday':   rndActs()
       'Wednesday': rndActs()
+    createNew: ->
+      pending = {}
+    updateNew: ->
+      pending
