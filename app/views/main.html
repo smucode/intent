@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="header clearfix">
-  	<a href class="icon-plus-sign icon-2x"></a>
+  	<a href="#/create" class="icon-plus-sign icon-2x"></a>
   	<h1>
   		<a href>intent<sup>alpha</sup></a>
   	</h1>
@@ -9,11 +9,11 @@
 </nav>
 
 
-<div ng-repeat="(date, arr) in intents">
-  <div style="padding: 10px; background: #E67E22; color: white">
+<div class="intent-list" ng-repeat="(date, arr) in intents">
+  <div class="header">
     {{ date }}
   </div>
-  <div ng-repeat="(id, intent) in arr" style="padding: 10px; border-bottom: 1px solid #eee">
+  <div class="text" ng-repeat="(id, intent) in arr">
     {{ intent.text }}
   </div>
 </div>

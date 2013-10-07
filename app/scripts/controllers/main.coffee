@@ -1,39 +1,9 @@
 'use strict';
 
 angular.module('sportsideApp')
-  .controller 'MainCtrl', ($scope) ->
+  .controller 'MainCtrl', ($scope, intents) ->
 
-    $scope.intents =
-      'Today':
-        1:
-          text: 'You want to play squash at Lysaker Squash und Bananorama'
-        2:
-          text: 'Tiger Woods is playing golf at Pebble Beach'
-        5:
-          text: 'Pedro and 2000 others is getting drunk at Kråka'
-      'Tomorrow':
-        3:
-          text: 'Therese Løvehjerte: Løpe i Frognerparken?'
-        4:
-          text: 'Syver: Squash på Lysaker!'
-      'Tuesday':
-        3:
-          text: 'Therese Løvehjerte wants to go jogging in Frognerparken'
-        4:
-          text: 'Syver, Bjørn and 3 others are playing squash at Lysaker Squash'
-      'Wednesday':
-        3:
-          text: 'Therese Løvehjerte is jogging at Frognerparken'
-        4:
-          text: 'Syver, Bjørn and 3 others are playing squash at Lysaker Squash'
-
-    foo = [
-      {
-        date: 12983,
-        activity: 124,
-        attendees: [911, 121, 131]
-      }
-    ]
+    $scope.intents = intents.fetch()
 
     # 1. I am / I want to
     # 2. <Activity>

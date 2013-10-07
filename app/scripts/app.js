@@ -7,6 +7,10 @@ angular.module('sportsideApp', [])
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/create', {
+        templateUrl: 'views/create-intent.html',
+        controller: 'CreateIntentCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

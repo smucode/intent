@@ -42,7 +42,7 @@ sup { font-size: 0.6em; }
   background: white;
 }
 
-.header {
+nav .header {
   color: $hfg;
   width: 100%;
   display: table;
@@ -69,4 +69,15 @@ sup { font-size: 0.6em; }
   >:nth-child(3) { float: right; }
 }
 
-
+.intent-list {
+  .header {
+    color: white;
+    padding: 10px;
+    background: #E67E22;
+  }
+  .text {
+     padding: 10px;
+     cursor: pointer;
+     border-bottom: 1px solid #eee;
+  }
+}
