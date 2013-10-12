@@ -1,24 +1,29 @@
 <h2>
   {{title}}
 </h2>
-<div style="text-align: center; padding: 10px 0 30px 0;">
-  <h3>
-    {{title}}
-  </h3>
-  <input
-    type="text"
-    autofocus="autofocus"
-    ng-model="intent.date"
-  />
-  <div>
-    <a href class="btn">
-      Done
-    </a>
-    <a href="#/select-date" class="btn btn-primary">
-      Next
-    </a>
+
+<div class="row" style="margin: 0 10px">
+  <div
+    class="col-md-8 col-md-offset-2"
+    style="text-align: center; padding: 10px 0 30px 0;">
+    <h3>
+      {{title}}
+    </h3>
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        autofocus="autofocus"
+        ng-model="intent.date"
+      />
+    </div>
+    <div>
+      <a href class="btn btn-default">Done</a>
+      <a href="#/select-date" class="btn btn-primary">Next</a>
+    </div>
   </div>
 </div>
+
 <h2>
   Dates
 </h2>

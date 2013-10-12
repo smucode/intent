@@ -5,12 +5,6 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
 /* Put your CSS here */
 
-// *, *:before, *:after {
-//   box-sizing: border-box;
-//   -moz-box-sizing: border-box;
-//   -webkit-box-sizing: border-box;
-// }
-
 $lgrey: #ECF0F1;
 $dgrey: #666;
 $lblue: #3498DB;
@@ -43,9 +37,9 @@ h2 {
   margin: 0;
   color: white;
   font-size: 1em;
-  padding: 0 10px;
   font-weight: normal;
   background: #E67E22;
+  padding: 10px;
 }
 
 .main {
@@ -55,42 +49,44 @@ h2 {
   background: white;
 }
 
-nav .header {
-  color: $hfg;
-  width: 100%;
-  display: table;
-  margin: 0 auto;
-  max-width: 940px;
-  background: $hbg;
-  text-align: center;
-  vertical-align: middle;
+nav.navbar {
+  border: none;
+  background: none;
 
-  h1 {
-    font-size: 1.5em;
-    display: table-cell;
-    font-weight: normal;
-    line-height: inherit;
+  .header {
+    color: $hfg;
+    width: 100%;
+    display: table;
+    margin: 0 auto;
+    max-width: 940px;
+    background: $hbg;
+    text-align: center;
     vertical-align: middle;
-  }
 
-  sup {
-    font-size: 0.6em;
-  }
+    h1 {
+      font-size: 1.5em;
+      display: table-cell;
+      font-weight: normal;
+      line-height: inherit;
+      vertical-align: middle;
+    }
 
-  a {
-    padding: 10px;
-    display: inline-block;
-  }
+    sup {
+      font-size: 0.6em;
+    }
 
-  >:nth-child(1) { float: left; }
-  >:nth-child(3) { float: right; }
+    a {
+      padding: 10px;
+      display: inline-block;
+    }
+
+    >:nth-child(1) { float: left; }
+    >:nth-child(3) { float: right; }
+  }
 }
 
 .intent-list {
   .header {
-    color: white;
-    padding: 10px;
-    background: #E67E22;
   }
   .text {
      padding: 10px;
