@@ -1,9 +1,10 @@
 'use strict'
 
 angular.module('sportsideApp')
-  .controller 'CreateIntentCtrl', ($scope, $location, intents) ->
-    $scope.create = (type) ->
+  .controller 'CreateIntentCtrl', ($scope, $location, pending) ->
 
-      intents.intent().type = type
+    $scope.create = (type) ->
+      pending.set
+        type: type
 
       $location.path 'select-activity'

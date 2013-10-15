@@ -1,0 +1,14 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "/Users/smu/src/intent",
+      "folder_exclude_patterns": [
+        ".tmp",
+        ".sass-cache",
+        "node_modules"
+      ]
+		}
+	]
+}

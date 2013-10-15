@@ -1,8 +1,8 @@
 'use strict'
 
 angular.module('sportsideApp')
-  .controller 'SelectDateCtrl', ($scope, intents) ->
-    $scope.intent = intents.intent()
+  .controller 'SelectDateCtrl', ($scope, intents, pending) ->
+    $scope.intent = pending.get()
 
     if $scope.intent.type is 'intent'
       $scope.title = "When are you #{$scope.intent.activity}?"

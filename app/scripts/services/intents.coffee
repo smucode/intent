@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('sportsideApp')
-  .factory 'intents', (jsonStore) ->
+  .factory 'intents', (recents, jsonStore) ->
 
     # {
     #   type: 'intent' / 'desire'
@@ -10,21 +10,6 @@ angular.module('sportsideApp')
     # }
 
     # jsonStore.set 'intents', []
-
-    pendingIntent = {}
-
-    recent =
-      intent: [
-        'playing golf'
-        'playing squash'
-        'smoking crack'
-        'hitting the range'
-      ]
-      desire: [
-        'play golf'
-        'play squash'
-        'smoke crack'
-      ]
 
     groupIntents = (intents) ->
       intents.reduce (memo, intent) ->
@@ -38,12 +23,6 @@ angular.module('sportsideApp')
       intents = jsonStore.get('intents') || []
       groupIntents intents
 
-    intent: ->
-      pendingIntent
-
-    recent: (type) ->
-      recent[type]
-
     remove: (id) ->
       intents = jsonStore.get('intents')
       jsonStore.set 'intents', intents.filter (intent) ->
@@ -54,4 +33,4 @@ angular.module('sportsideApp')
       intents = jsonStore.get 'intents'
       intents.push intent
       jsonStore.set 'intents', intents
-      pendingIntent = {}
+      recents.set intent # broadcast?

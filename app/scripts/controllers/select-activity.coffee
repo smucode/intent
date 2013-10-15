@@ -1,11 +1,11 @@
 'use strict'
 
 angular.module('sportsideApp')
-  .controller 'SelectActivityCtrl', ($scope, $location, intents) ->
+  .controller 'SelectActivityCtrl', ($scope, $location, pending, recents) ->
 
-    $scope.intent = intents.intent()
+    $scope.intent = pending.get()
 
-    $scope.recent = intents.recent $scope.intent.type
+    $scope.recent = recents.get $scope.intent.type
 
     if $scope.intent.type is 'intent'
       $scope.title = 'What are you doing?'
@@ -19,4 +19,5 @@ angular.module('sportsideApp')
       $scope.next()
 
     $scope.next = ->
+      pending.set $scope.intent
       $location.path 'select-date'
