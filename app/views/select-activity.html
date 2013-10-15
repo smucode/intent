@@ -2,29 +2,40 @@
   {{title}}
 </h2>
 
-<div class="row" style="margin: 0 10px">
-  <div
-    class="col-md-8 col-md-offset-2"
-    style="text-align: center; padding: 10px 0 30px 0;">
+<div class="row" style="margin: 0 10px; text-align: center">
+  <div>
+
     <h3>
-      {{sub_title}} {{intent.activity}}...
+      {{subTitle}} {{intent.activity}}...
     </h3>
+
     <div class="form-group">
       <input
         type="text"
         class="form-control"
-        autofocus="autofocus"
+        placeholder="{{title}}..."
         ng-model="intent.activity"
-        placeholder="{{sub_title}}..."
       />
     </div>
+
     <div>
-      <a href class="btn btn-default">Done</a>
-      <a href="#/select-date" class="btn btn-primary">Next</a>
+      <button
+        ng-click="next()"
+        class="btn btn-primary"
+        ng-disabled="!intent.activity">
+        Next
+      </button>
     </div>
+
+    <div class="recent-group" style="padding: 10px 0">
+      <button
+        class="recent-button"
+        ng-repeat="activity in recent"
+        ng-click="setActivity(activity)">
+        {{activity}}
+      </button>
+    </div>
+
   </div>
 </div>
 
-<h2>
-  Recent activities
-</h2>

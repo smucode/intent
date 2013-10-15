@@ -1,30 +1,57 @@
 'use strict';
 
 angular.module('sportsideApp')
-  .factory 'intents', () ->
-    acts = [
-      'You want to play squash at Lysaker Squash und Bananorama'
-      'Tiger Woods is playing golf at Pebble Beach'
-      'Pedro and 2000 others is getting drunk at Kråka'
-      'Therese Løvehjerte: Løpe i Frognerparken?'
-      'Syver: Squash på Lysaker!'
-      'Therese Løvehjerte wants to go jogging in Frognerparken'
-      'Syver, Bjørn and 3 others are playing squash at Lysaker Squash'
-      'Therese Løvehjerte is jogging at Frognerparken'
-    ]
-    rndActs = ->
-      _.reduce [0..Math.random() * 10 | 0], (memo, i) ->
-        memo[i] = text: acts[Math.random() * acts.length | 0]; memo
+  .factory 'intents', (jsonStore) ->
+
+    # {
+    #   type: 'intent' / 'desire'
+    #   activity: 'play golf'
+    #   date: 'str'
+    # }
+
+    # jsonStore.set 'intents', []
+
+    pendingIntent = {}
+
+    recent =
+      intent: [
+        'playing golf'
+        'playing squash'
+        'smoking crack'
+        'hitting the range'
+      ]
+      desire: [
+        'play golf'
+        'play squash'
+        'smoke crack'
+      ]
+
+    groupIntents = (intents) ->
+      intents.reduce (memo, intent) ->
+        memo[intent.date] ||= []
+        memo[intent.date].push intent; memo
       , {}
 
-    pending = {}
+    # public
 
     fetch: ->
-      'Today':     rndActs()
-      'Tomorrow':  rndActs()
-      'Tuesday':   rndActs()
-      'Wednesday': rndActs()
-    createNew: ->
-      pending = {}
-    updateNew: ->
-      pending
+      intents = jsonStore.get('intents') || []
+      groupIntents intents
+
+    intent: ->
+      pendingIntent
+
+    recent: (type) ->
+      recent[type]
+
+    remove: (id) ->
+      intents = jsonStore.get('intents')
+      jsonStore.set 'intents', intents.filter (intent) ->
+        intent.id isnt id
+
+    save: (intent) ->
+      intent.id = Math.random() * 1000 | 0
+      intents = jsonStore.get 'intents'
+      intents.push intent
+      jsonStore.set 'intents', intents
+      pendingIntent = {}
