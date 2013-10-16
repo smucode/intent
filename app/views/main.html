@@ -1,6 +1,6 @@
 <div class="intent-list" ng-repeat="(date, arr) in intents">
   <h2 class="header">
-    {{ date }}
+    {{ formatDate(date) }}
   </h2>
   <div class="text" ng-repeat="(id, intent) in arr">
     <span style="color: #999">

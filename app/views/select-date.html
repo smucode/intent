@@ -13,10 +13,10 @@
 
     <div class="recent-group" style="padding: 10px 0">
       <button
-        ng-click="next(date)"
+        ng-click="next(date.id)"
         class="recent-button"
         ng-repeat="date in dates">
-        {{date}}
+        {{date.day}}
       </button>
     </div>
 

@@ -9,13 +9,13 @@ angular.module('sportsideApp')
     else
       $scope.title = "When do you want to #{$scope.intent.activity}?"
 
-    $scope.dates = [
-      'Today'
-      'Tomorrow'
-      'Wednesday'
-      'Thursday'
-      'Friday'
-    ]
+    $scope.dates = [0...5].map (i) ->
+      m = moment().add('days', i)
+      id: m.toISOString()
+      day: switch i
+        when 0 then 'Today'
+        when 1 then 'Tomorrow'
+        else m.format('dddd')
 
     $scope.next = (date)->
       $scope.intent.date = date

@@ -12,24 +12,15 @@ angular.module('sportsideApp')
       intents.remove id
       $scope.intents = intents.fetch()
 
-    # 1. I am / I want to
-    # 2. <Activity>
-      # I want to <play squash> / Stig Murberg wants to <play squash>
-      # I am <playing squash> / Stig Murberg is <playing squash>
+    moment.lang 'en', # yeah, not here
+        calendar:
+            sameDay: '[Today]'
+            nextDay: '[Tomorrow]'
+            nextWeek: 'dddd'
+            sameElse: 'dddd, MMMM Do'
 
-    # 4- <Date>
-      # I want to <play squash> <today>
-
-    # 4.1- <Time>
-
-    # 3- <Location>
-      # I want to <play squash> at <Lysaker Squash>
-
-    # 5- <Other Participants>
-      # I am <playing squash> with <Oddiz>
-
-    # 6- Comment
-      # Still room in the flight!
-
-    # [ Add Location ]
-    # [ All Done ]
+    $scope.formatDate = (date) -> # move to directive or something?
+      l8r = moment(date).format('dddd, MMMM Do')
+      return 'Today' if l8r is moment().format('dddd, MMMM Do')
+      return 'Tomorrow' if l8r is moment().add('days', 1).format('dddd, MMMM Do')
+      return moment(date).calendar('dddd')

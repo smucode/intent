@@ -11,6 +11,11 @@ angular.module('sportsideApp')
       $scope.title = "What time do you want to #{$scope.intent.activity}?"
 
     $scope.next = (time) ->
+      $scope.intent.date = moment($scope.intent.date)
+        .hour($scope.time.hours)
+        .minute($scope.time.minutes)
+        .toISOString()
+
       $scope.intent.time = $scope.time
       intents.save $scope.intent
       $location.path '/'
