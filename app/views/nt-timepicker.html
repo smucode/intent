@@ -1,0 +1,35 @@
+<div class="timepicker">
+  <div class="hours">
+    <button
+      ng-click="addHour()"
+      class="form-control icon-chevron-up">
+    </button>
+    <input
+      autofocus
+      type="text"
+      tabIndex="3"
+      class="form-control"
+      ng-model="time.hours"
+    />
+    <button
+      ng-click="remHour()"
+      class="form-control icon-chevron-down">
+    </button>
+  </div>
+  <div class="minutes">
+    <button
+      ng-click="addMin()"
+      class="form-control icon-chevron-up">
+    </button>
+    <input
+      type="text"
+      tabIndex="4"
+      class="form-control"
+      ng-model="time.minutes"
+    />
+    <button
+      ng-click="remMin()"
+      class="form-control icon-chevron-down">
+    </button>
+  </div>
+</div>

@@ -3,6 +3,9 @@
     {{ date }}
   </h2>
   <div class="text" ng-repeat="(id, intent) in arr">
+    <span style="color: #999">
+      {{ intent.time.hours }}:{{ intent.time.minutes }}
+    </span>
     <span>
       SMU
     </span>

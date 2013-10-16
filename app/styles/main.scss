@@ -128,3 +128,25 @@ nav.navbar {
   display: block;
   width: 100%;
 }
+
+.timepicker {
+  padding: 10px 0;
+  .hours, .minutes {
+    display: inline-block;
+    width: 2.9em;
+    font-size: 24px;
+    text-align: center;
+  }
+  input {
+    width: 3em;
+    height: auto;
+    font-size: 24px;
+    text-align: center;
+  }
+  button {
+    border: 0;
+    font-size: 24px;
+    box-shadow: none;
+    margin: 5px 0;
+  }
+}

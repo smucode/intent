@@ -20,6 +20,8 @@ angular.module('sportsideApp')
     # 4- <Date>
       # I want to <play squash> <today>
 
+    # 4.1- <Time>
+
     # 3- <Location>
       # I want to <play squash> at <Lysaker Squash>
 

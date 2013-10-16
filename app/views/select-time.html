@@ -11,14 +11,15 @@
       {{title}}
     </h3>
 
-    <div class="recent-group" style="padding: 10px 0">
-      <button
-        ng-click="next(date)"
-        class="recent-button"
-        ng-repeat="date in dates">
-        {{date}}
-      </button>
-    </div>
+    <nt-timepicker ng-model="time"></nt-timepicker>
+
+    <button
+      tabIndex="5"
+      ng-click="next()"
+      style="margin-top: 10px"
+      class="btn btn-primary">
+      Next
+    </button>
 
   </div>
 </div>
