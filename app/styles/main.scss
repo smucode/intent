@@ -1,20 +1,37 @@
-$iconSpritePath: "../images/glyphicons-halflings.png";
-$iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
-
 @import "bootstrap-sass/lib/bootstrap";
 
 /* Put your CSS here */
 
-$lgrey: #ECF0F1;
-$dgrey: #666;
-$lblue: #3498DB;
-$lred:  #E74C3C;
-$green: #27AE60;
+$turquoise: #1abc9c;
+$green_sea: #16a085;
+$emerald: #2ecc71;
+$nephritis: #27ae60;
+$peter_river: #3498db;
+$belize_hole: #2980b9;
+$amethyst: #9b59b6;
+$wisteria: #8e44ad;
+$wet_asphalt: #34495e;
+$midnight_blue: #2c3e50;
+$sun_flower: #f1c40f;
+$orange: #f39c12;
+$carrot: #e67e22;
+$pumpkin: #d35400;
+$alizarin: #e74c3c;
+$pomegranate: #c0392b;
+$clouds: #ecf0f1;
+$silver: #bdc3c7;
+$concrete: #95a5a6;
+$asbestos: #7f8c8d;
 
-$bg:  $lgrey;
-$cbg: white;
-$hbg: #D35400;
-$hfg: $lgrey;
+$bg1: $clouds;
+
+$h1bg: $midnight_blue;
+$h2bg: saturate(lighten($h1bg, 15%), 15%);
+
+$fg1: $clouds;
+$fg2: #333;
+
+$btn: $belize_hole;
 
 html, body {
   margin: 0px;
@@ -22,24 +39,24 @@ html, body {
 }
 
 body {
-  color: $dgrey;
-  background: $bg;
+  color: $fg2;
+  background: $bg1;
   padding-top: 48px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 a, a:hover {
-  color: $lgrey;
+  color: $fg1;
   text-decoration: none;
 }
 
 h2 {
   margin: 0;
   color: white;
-  font-size: 1em;
-  font-weight: normal;
-  background: #E67E22;
   padding: 10px;
+  font-size: 1em;
+  background: $h2bg;
+  font-weight: normal;
 }
 
 h3 {
@@ -60,12 +77,12 @@ nav.navbar {
   background: none;
 
   .header {
-    color: $hfg;
+    color: $fg1;
     width: 100%;
     display: table;
     margin: 0 auto;
     max-width: 940px;
-    background: $hbg;
+    background: $h1bg;
     text-align: center;
     vertical-align: middle;
 
@@ -105,7 +122,7 @@ nav.navbar {
   color: white;
   padding: 10px;
   margin-top: 10px;
-  background: #E74C3C;
+  background: $btn;
   border-radius: 5px;
   border: 0;
   display: block;
