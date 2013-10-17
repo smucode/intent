@@ -11,6 +11,12 @@ angular.module('sportsideApp')
 
     # jsonStore.set 'intents', []
 
+    get = ->
+      jsonStore.get('intents') || []
+
+    set = (intents) ->
+      jsonStore.set 'intents', intents
+
     filter = (intents) ->
       now = moment()
       intents.filter (i) ->
@@ -33,18 +39,21 @@ angular.module('sportsideApp')
 
     # public
 
+    byId: (strId) ->
+      id = parseInt strId, 10
+      _.find get(), (i) ->
+        i.id is id
+
     fetch: ->
-      intents = jsonStore.get('intents') || []
-      group sort filter intents
+      group sort filter get()
 
     remove: (id) ->
-      intents = jsonStore.get('intents')
-      jsonStore.set 'intents', intents.filter (intent) ->
+      set get().filter (intent) ->
         intent.id isnt id
 
     save: (intent) ->
       intent.id = Math.random() * 1000 | 0
-      intents = jsonStore.get 'intents'
+      intents = get()
       intents.push intent
-      jsonStore.set 'intents', intents
+      set intents
       recents.set intent # broadcast?

@@ -1,8 +1,12 @@
 <div class="intent-list" ng-repeat="(date, arr) in intents">
-  <h2 class="header">
+  <h2>
     {{ formatDate(date) }}
   </h2>
-  <div class="text" ng-repeat="(id, intent) in arr">
+  <a
+    href
+    class="intent"
+    ng-click="showIntent(intent.id)"
+    ng-repeat="(id, intent) in arr">
     <span style="color: #999">
       {{ intent.time.hours }}:{{ intent.time.minutes }}
     </span>
@@ -15,6 +19,10 @@
     <span>
       {{ intent.activity }}
     </span>
-    <span style="float: right" class="icon-trash" ng-click="remove(intent.id)"></span>
-  </div>
+    <span
+      class="icon-trash"
+      style="float: right"
+      ng-click="remove(intent.id)">
+    </span>
+  </a>
 </div>

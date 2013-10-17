@@ -23,6 +23,10 @@ angular.module('sportsideApp', [])
         templateUrl: 'views/select-time.html',
         controller: 'SelectTimeCtrl'
       })
+      .when('/intent/:id', {
+        templateUrl: 'views/intent.html',
+        controller: 'IntentCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
