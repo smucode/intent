@@ -1,2 +1,23 @@
-<p>This is the intent view.</p>
-{{intent.id}}
+<h2>{{intent.date}}</h2>
+
+<h3>
+  <span>
+    You
+  </span>
+  <span>
+    {{ formatType(intent.type) }}
+  </span>
+  <span>
+    {{ intent.activity }}
+  </span>
+</h3>
+
+<h2 style="text-align: center">
+  <button class="icon-thumbs-up">
+    Count me in
+  </button>
+</h2>
+
+  <span class="icon-comment">
+    Comment
+  </span>
