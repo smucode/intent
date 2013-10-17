@@ -11,10 +11,15 @@ angular.module('sportsideApp')
 
     # jsonStore.set 'intents', []
 
-    sortIntents = (intents) ->
+    filter = (intents) ->
+      now = moment()
+      intents.filter (i) ->
+        now.isBefore i.date
+
+    sort = (intents) ->
       _.sortBy intents, (i) -> i.date
 
-    groupIntents = (intents) ->
+    group = (intents) ->
       intents.reduce (memo, intent) ->
         date = moment(intent.date)
           .hour(0)
@@ -30,7 +35,7 @@ angular.module('sportsideApp')
 
     fetch: ->
       intents = jsonStore.get('intents') || []
-      groupIntents sortIntents intents
+      group sort filter intents
 
     remove: (id) ->
       intents = jsonStore.get('intents')
