@@ -2,8 +2,7 @@
   <h2>
     {{ formatDate(date) }}
   </h2>
-  <a
-    href
+  <a href
     class="intent"
     ng-click="showIntent(intent.id)"
     ng-repeat="(id, intent) in arr">
@@ -18,11 +17,6 @@
     </span>
     <span>
       {{ intent.activity }}
-    </span>
-    <span
-      class="icon-trash"
-      style="float: right"
-      ng-click="remove(intent.id)">
     </span>
   </a>
 </div>

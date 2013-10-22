@@ -1,4 +1,9 @@
-<h2>{{intent.date}}</h2>
+<h2>
+  {{intent.date | moment}}
+  <a href class="fr icon-trash" ng-click="del()">
+    Delete
+  </a>
+</h2>
 
 <h3>
   <span>
@@ -12,11 +17,11 @@
   </span>
 </h3>
 
-<h2 style="text-align: center">
-  <button class="btn btn-success icon-thumbs-up">
+<div class="bg3 pad-med">
+  <a href class="icon-thumbs-up">
     Count me in
-  </button>
-</h2>
+  </a>
+</div>
 
 <div class="intent-comments">
   <div class="comment" ng-repeat="message in intent.messages">

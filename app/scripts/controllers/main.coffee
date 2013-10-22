@@ -8,10 +8,6 @@ angular.module('sportsideApp')
 
     $scope.intents = intents.fetch()
 
-    $scope.remove = (id) ->
-      intents.remove id
-      $scope.intents = intents.fetch()
-
     $scope.showIntent = (id) ->
       $location.path "intent/#{id}"
 

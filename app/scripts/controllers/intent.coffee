@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('sportsideApp')
-  .controller 'IntentCtrl', ($scope, $routeParams, intents) ->
+  .controller 'IntentCtrl', ($scope, $routeParams, $location, intents) ->
 
     $scope.intent = intents.byId $routeParams.id
 
@@ -14,3 +14,7 @@ angular.module('sportsideApp')
         body: $scope.message
       intents.save $scope.intent
       $scope.message = ''
+
+    $scope.del = ->
+      intents.remove $scope.intent.id
+      $location.path '/'

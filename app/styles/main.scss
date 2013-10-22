@@ -27,6 +27,7 @@ $bg1: $clouds;
 
 $h1bg: $midnight_blue;
 $h2bg: saturate(lighten($h1bg, 15%), 15%);
+$h3bg: $clouds;
 
 $fg1: $clouds;
 $fg2: #333;
@@ -35,7 +36,6 @@ $btn: $belize_hole;
 
 html, body {
   margin: 0px;
-  height: 100%;
 }
 
 body {
@@ -44,6 +44,17 @@ body {
   padding-top: 48px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
+.bg3 {
+  background: $h3bg;
+}
+
+.pad-med {
+  padding: 10px;
+}
+
+.fl { float: left; }
+.fr { float: right; }
 
 a, a:hover {
   color: $fg2;
