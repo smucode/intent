@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('sportsideApp')
-  .factory 'intents', (recents, jsonStore) ->
+  .factory 'intents', (recents, jsonIdStore) ->
 
     # {
     #   type: 'intent' / 'desire'
@@ -9,9 +9,7 @@ angular.module('sportsideApp')
     #   date: 'str'
     # }
 
-    # jsonStore.set 'intents', []
-
-    intents = jsonStore.get('intents') || []
+    store = jsonIdStore.init 'intents'
 
     filter = (intents) ->
       now = moment()
@@ -35,20 +33,15 @@ angular.module('sportsideApp')
 
     # public
 
-    byId: (strId) ->
-      id = parseInt strId, 10
-      _.find intents, (i) ->
-        i.id is id
+    byId: (id) ->
+      store.get id
 
     fetch: ->
-      group sort filter intents
+      group sort filter store.all()
 
     remove: (id) ->
-      jsonStore.set 'intents', intents.filter (intent) ->
-        intent.id isnt id
+      store.rem id
 
     save: (intent) ->
-      intent.id = Math.random() * 1000 | 0
-      intents.push intent
-      jsonStore.set 'intents', intents
+      store.save(intent)
       recents.set intent # broadcast?

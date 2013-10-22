@@ -7,3 +7,10 @@ angular.module('sportsideApp')
 
     $scope.formatType = (type) ->
       if type is 'intent' then 'is' else 'wants to'
+
+    $scope.postMessage = ->
+      ($scope.intent.messages ||= []).unshift
+        date: new Date
+        body: $scope.message
+      intents.save $scope.intent
+      $scope.message = ''

@@ -149,3 +149,23 @@ nav.navbar {
     box-shadow: none;
   }
 }
+
+.intent-comments {
+  .comment {
+    padding: 10px 5px;
+    border-bottom: 1px solid #ddd;
+    .name {
+      font-weight: bold;
+    }
+    .body {
+    }
+    .date {
+      color: #777;
+      font-size: .9em;
+      display: block;
+    }
+  }
+  .new {
+    padding: 10px;
+  }
+}
