@@ -3,14 +3,14 @@
     {{ formatDate(date) }}
   </h2>
   <a href
-    class="intent"
+    class="intent clearfix"
     ng-click="showIntent(intent.id)"
     ng-repeat="(id, intent) in arr">
     <span style="color: #999">
       {{ intent.time.hours }}:{{ intent.time.minutes }}
     </span>
-    <span>
-      SMU
+    <span style="color: #34495E">
+      Stig Murberg
     </span>
     <span>
       {{ formatType(intent.type) }}
@@ -18,5 +18,13 @@
     <span>
       {{ intent.activity }}
     </span>
+    <div style="color: #666" class="fr">
+      <span class="icon-comment-alt pad-s-h">
+        3
+      </span>
+      <span class="icon-dribbble pad-s-h">
+        3
+      </span>
+    </div>
   </a>
 </div>
