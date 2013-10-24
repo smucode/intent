@@ -25,8 +25,8 @@ $midnight_blue: #2c3e50;
 
 $bg1: $clouds;
 
-$h1bg: $pumpkin;
-$h2bg: saturate(lighten($h1bg, 15%), 85%);
+$h1bg: $wet_asphalt;
+$h2bg: saturate(lighten($h1bg, 15%), 15%);
 $h3bg: $clouds;
 
 $fg1: $clouds;
@@ -36,6 +36,7 @@ $btn: $belize_hole;
 
 html, body {
   margin: 0px;
+  height: 100%;
 }
 
 body {
@@ -45,17 +46,18 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.bg3 {
-  background: $h3bg;
+.bg1 { background: $h1bg; }
+.bg2 { background: $h2bg; }
+.bg3 { background: $h3bg; }
+
+.bg1, .bg2, .bg3 {
+  a {
+    color: white;
+  }
 }
 
-.pad-med {
-  padding: 10px;
-}
-
-.pad-s-h {
-  padding: 0 5px;
-}
+.pad-m   { padding: 10px; }
+.pad-s-h { padding: 0 5px; }
 
 .fl { float: left; }
 .fr { float: right; }
@@ -128,6 +130,7 @@ nav.navbar {
   .intent {
      padding: 10px;
      display: block;
+     background: white;
      border-bottom: 1px solid #eee;
   }
 }

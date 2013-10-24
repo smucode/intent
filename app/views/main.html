@@ -19,8 +19,10 @@
       {{ intent.activity }}
     </span>
     <div style="color: #666" class="fr">
-      <span class="icon-comment-alt pad-s-h">
-        3
+      <span
+        class="icon-comment-alt pad-s-h"
+        ng-show="intent.messages.length">
+        {{intent.messages.length}}
       </span>
       <span class="icon-dribbble pad-s-h">
         3
