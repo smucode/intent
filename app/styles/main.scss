@@ -197,8 +197,15 @@ nav.navbar {
     float: right;
   }
 
-  .span {
-    padding: 5px;
-    display: inline-block;
+  .thumbs {
+    clear: both;
+    padding-top: 10px;
+
+    span {
+      padding: 10px;
+      display: inline-block;
+      border: 1px solid #999;
+      background: #ddd;
+    }
   }
 }
