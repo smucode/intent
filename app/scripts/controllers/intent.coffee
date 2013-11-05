@@ -5,11 +5,11 @@ angular.module('sportsideApp')
 
     $scope.intent = intents.byId $routeParams.id
 
-    $scope.participantsMessage = (num = 1) ->
+    $scope.participantsMessage = (num = 0) ->
       switch num
-        when 1 then 'Only you are going'
-        when 2 then 'You and one more is going'
-        else "You and #{$scope.intent.participants.length} others are going"
+        when 0 then 'Nobody has joined yet...'
+        when 1 then 'You and one more is going.'
+        else "You and #{$scope.intent.participants.length} others are going."
 
     $scope.formatType = (type) ->
       if type is 'intent' then 'is' else 'wants to'
