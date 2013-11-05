@@ -5,6 +5,7 @@ angular.module('sportsideApp')
 
     $scope.intent = intents.byId $routeParams.id
 
+    # TODO: Move participants to own view
     $scope.participantsMessage = (num = 0) ->
       switch num
         when 0 then 'Nobody has joined yet...'
@@ -14,6 +15,9 @@ angular.module('sportsideApp')
     $scope.formatType = (type) ->
       if type is 'intent' then 'is' else 'wants to'
 
+    # TODO: Move messaging to own view
+    # TODO: Messages are only part of
+    #       an intents 'activities'
     $scope.postMessage = ->
       ($scope.intent.messages ||= []).unshift
         date: new Date
