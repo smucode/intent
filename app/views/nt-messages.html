@@ -1,0 +1,22 @@
+<div class="intent-comments">
+  <div class="comment" ng-repeat="message in intent.messages">
+    <span class="name">Stig Murberg:</span>
+    <span class="body">{{message.body}}</span>
+    <span class="date">{{message.date | moment}}</span>
+  </div>
+  <div class="new">
+    <textarea
+      ng-model="message"
+      class="form-control"
+      placeholder="Leave a comment..."
+    ></textarea>
+
+    <div style="text-align: right; padding-top: 10px">
+      <button
+        ng-click="postMessage()"
+        class="btn btn-default icon-comment">
+        Post
+      </button>
+    </div>
+  </div>
+</div>

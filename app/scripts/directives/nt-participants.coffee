@@ -1,9 +1,9 @@
 'use strict'
 
 angular.module('sportsideApp')
-  .directive 'ntParticipants', () ->
-    templateUrl: 'views/nt-participants.html'
+  .directive 'ntParticipants', ->
     restrict: 'E'
+    templateUrl: 'views/nt-participants.html'
     controller: ($scope, intents) ->
 
       $scope.join = ->
