@@ -6,9 +6,12 @@
     class="intent clearfix"
     ng-click="showIntent(intent.id)"
     ng-repeat="(id, intent) in arr">
-    <span style="color: #999">
-      {{ intent.time.hours }}:{{ intent.time.minutes }}
-    </span>
+
+    <img
+      src="images/bc.jpg"
+      style="height: 50px; position: absolute; left: 10px"
+    />
+
     <span style="color: #34495E">
       Stig Murberg
     </span>
@@ -18,17 +21,24 @@
     <span>
       {{ intent.activity }}
     </span>
-    <div style="color: #666" class="fr">
-      <span
-        class="icon-comment-alt pad-s-h"
-        ng-show="intent.messages.length">
-        {{intent.messages.length}}
+
+    <div style="padding-top: 10px; font-size: 12px; color: #999">
+      <span class="fl">
+        {{ formatDate(date) }} at
+        {{ intent.time.hours }}:{{ intent.time.minutes }}
       </span>
-      <span
-        class="icon-dribbble pad-s-h"
-        ng-show="intent.participants.length">
-        {{intent.participants.length}}
-      </span>
+      <div style="color: #666" class="fr">
+        <span
+          class="icon-comment-alt pad-s-h"
+          ng-show="intent.messages.length">
+          {{intent.messages.length}}
+        </span>
+        <span
+          class="icon-user pad-s-h"
+          ng-show="intent.participants.length">
+          {{intent.participants.length}}
+        </span>
+      </div>
     </div>
   </a>
 </div>

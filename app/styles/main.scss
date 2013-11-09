@@ -1,5 +1,7 @@
 @import "bootstrap-sass/lib/bootstrap";
 
+@import url(http://fonts.googleapis.com/css?family=Carrois+Gothic);
+
 /* Put your CSS here */
 
 $orange: #f39c12;
@@ -34,6 +36,10 @@ $fg2: #333;
 
 $btn: $belize_hole;
 
+body * {
+  font-family: 'Carrois Gothic', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
 html, body {
   margin: 0px;
   height: 100%;
@@ -43,7 +49,6 @@ body {
   color: $fg2;
   background: $bg1;
   padding-top: 48px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .bg1 { background: $h1bg; }
@@ -57,7 +62,7 @@ body {
 }
 
 .pad-m   { padding: 10px; }
-.pad-s-h { padding: 0 5px; }
+.pad-s-h { padding: 0 3px; }
 
 .fl { float: left; }
 .fr { float: right; }
@@ -128,10 +133,11 @@ nav.navbar {
 
 .intent-list {
   .intent {
-     padding: 10px;
-     display: block;
-     background: white;
-     border-bottom: 1px solid #eee;
+    display: block;
+    min-height: 70px;
+    background: white;
+    padding: 10px 10px 10px 70px;
+    border-bottom: 1px solid #eee;
   }
 }
 
