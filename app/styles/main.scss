@@ -31,6 +31,9 @@ $h1bg: $wet_asphalt;
 $h2bg: saturate(lighten($h1bg, 15%), 15%);
 $h3bg: $clouds;
 
+$h1bgi: linear-gradient(to bottom, $h1bg 0%, saturate(darken($h1bg, 5%), 5%) 100%);
+$h2bgi: linear-gradient(to bottom, $h2bg 0%, saturate(darken($h2bg, 5%), 5%) 100%);
+
 $fg1: $clouds;
 $fg2: #333;
 
@@ -51,9 +54,16 @@ body {
   padding-top: 48px;
 }
 
-.bg1 { background: $h1bg; }
-.bg2 { background: $h2bg; }
-.bg3 { background: $h3bg; }
+.bg1 {
+  background: $h1bg;
+}
+.bg2 {
+  background: $h2bg;
+  background-image: $h2bgi;
+}
+.bg3 {
+  background: $h3bg;
+}
 
 .bg1, .bg2, .bg3 {
   a {
@@ -77,7 +87,6 @@ h2 {
   color: white;
   padding: 10px;
   font-size: 1em;
-  background: $h2bg;
   font-weight: normal;
 }
 
@@ -107,6 +116,7 @@ nav.navbar {
     background: $h1bg;
     text-align: center;
     vertical-align: middle;
+    background-image: $h1bgi;
 
     h1 {
       font-size: 1.5em;
