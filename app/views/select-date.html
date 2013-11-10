@@ -1,7 +1,3 @@
-<h2 class="bg2">
-  {{title}}
-</h2>
-
 <div class="row" style="margin: 0 10px">
   <div
     class="col-md-8 col-md-offset-2"
@@ -13,8 +9,8 @@
 
     <div class="recent-group" style="padding: 10px 0">
       <button
-        ng-click="next(date.id)"
         class="recent-button"
+        ng-click="next(date.id)"
         ng-repeat="date in dates">
         {{date.day}}
       </button>

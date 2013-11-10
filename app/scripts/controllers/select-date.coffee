@@ -9,7 +9,7 @@ angular.module('sportsideApp')
     else
       $scope.title = "When do you want to #{$scope.intent.activity}?"
 
-    $scope.dates = [0...5].map (i) ->
+    $scope.dates = [0...7].map (i) ->
       m = moment().add('days', i)
       id: m.toISOString()
       day: switch i
