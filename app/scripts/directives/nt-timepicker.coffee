@@ -6,29 +6,31 @@ angular.module('sportsideApp')
     restrict: 'E'
     controller: ($scope) ->
 
+      date = moment()
+      date.minutes ~(date.minutes() / 15) * -15
+
       pad = (val) ->
         num = parseInt val, 10
         if num > 9 then num else '0' + num
 
-      next = (val, op, max) ->
-        num = parseInt val
-        if op is '+'
-          if num is max then pad 0 else pad num + 1
-        else
-          if num is 0 then pad max else pad num - 1
+      update = ->
+        $scope.time.hours = pad date.hours()
+        $scope.time.minutes = pad date.minutes()
 
-      date = new Date()
-      $scope.time.hours = pad date.getHours()
-      $scope.time.minutes = pad date.getMinutes()
+      update()
 
       $scope.addHour = ->
-        $scope.time.hours = next $scope.time.hours, '+', 23
+        date.add 'hour', 1
+        update()
 
       $scope.remHour = ->
-        $scope.time.hours = next $scope.time.hours, '-', 23
+        date.add 'hour', -1
+        update()
 
       $scope.addMin = ->
-        $scope.time.minutes = next $scope.time.minutes, '+', 59
+        date.add 'minute', 15
+        update()
 
       $scope.remMin = ->
-        $scope.time.minutes = next $scope.time.minutes, '-', 59
+        date.add 'minute', -15
+        update()
