@@ -1,13 +1,15 @@
-<div class="participants bg3 pad-m">
+<div class="participants pad-m">
   <div style="clear: both">
     <span>
       {{participantsMessage(intent.participants.length)}}
     </span>
-    <a href class="icon-thumbs-up" ng-click="join()">
-      Count me in
-    </a>
+    <button href
+      class="btn btn-default fa fa-thumbs-up"
+      ng-click="join()">
+      Join
+    </button>
   </div>
   <div class="thumbs">
-    <span class="icon-user" ng-repeat="p in intent.participants"></span>
+    <span class="fa fa-user" ng-repeat="p in intent.participants"></span>
   </div>
 </div>

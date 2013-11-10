@@ -103,6 +103,10 @@ h3 {
   background: white;
 }
 
+.menu-icon {
+  width: 48px;
+}
+
 nav.navbar {
   border: none;
   background: none;
@@ -208,7 +212,7 @@ nav.navbar {
   border-top: 1px solid #BDC3C7;
   border-bottom: 1px solid #BDC3C7;
 
-  a {
+  button {
     color: #333;
     float: right;
   }

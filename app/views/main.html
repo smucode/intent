@@ -4,6 +4,7 @@
   </h2>
   <a href
     class="intent clearfix"
+    style="position: relative"
     ng-click="showIntent(intent.id)"
     ng-repeat="(id, intent) in arr">
 
@@ -21,12 +22,12 @@
       </span>
       <div style="color: #666" class="fr">
         <span
-          class="icon-comment-alt pad-s-h"
+          class="fa fa-comment pad-s-h"
           ng-show="intent.messages.length">
           {{intent.messages.length}}
         </span>
         <span
-          class="icon-user pad-s-h"
+          class="fa fa-user pad-s-h"
           ng-show="intent.participants.length">
           {{intent.participants.length}}
         </span>

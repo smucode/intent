@@ -8,9 +8,9 @@ angular.module('sportsideApp')
 
       setClass = (path) ->
         if path is "/"
-          $scope.leftClass = 'icon-plus-sign icon-2x'
+          $scope.leftClass = 'menu-icon fa fa-plus-circle fa-2x'
         else
-          $scope.leftClass = 'icon-chevron-sign-left icon-2x'
+          $scope.leftClass = 'menu-icon fa fa-chevron-left fa-2x'
 
       $scope.leftClick = ->
         if $location.path() is '/'
