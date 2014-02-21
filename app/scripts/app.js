@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sportsideApp', [])
+angular.module('sportsideApp', ['ngRoute'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
