@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('sportsideApp')
+angular.module('intentApp')
   .controller 'CreateIntentCtrl', ($scope, $location, pending) ->
 
     $scope.create = (type) ->

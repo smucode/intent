@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sportsideApp')
+angular.module('intentApp')
   .directive 'ntMenu', () ->
     templateUrl: 'views/nt-menu.html'
     restrict: 'E'

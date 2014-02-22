@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sportsideApp')
+angular.module('intentApp')
   .factory 'pending', (jsonStore) ->
 
     get: ->

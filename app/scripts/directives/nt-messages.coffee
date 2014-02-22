@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('sportsideApp')
+angular.module('intentApp')
   .directive 'ntMessages', ->
     restrict: 'E'
     templateUrl: 'views/nt-messages.html'

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sportsideApp')
+angular.module('intentApp')
   .directive 'ntTimepicker', () ->
     templateUrl: 'views/nt-timepicker.html'
     restrict: 'E'

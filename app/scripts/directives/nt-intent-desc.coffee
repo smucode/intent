@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('sportsideApp')
+angular.module('intentApp')
   .directive('ntIntentDesc', () ->
     restrict: 'A'
     link: (scope, element, attrs) ->

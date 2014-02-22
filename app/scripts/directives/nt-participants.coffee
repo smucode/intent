@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('sportsideApp')
+angular.module('intentApp')
   .directive 'ntParticipants', ->
     restrict: 'E'
     templateUrl: 'views/nt-participants.html'

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sportsideApp', ['ngRoute'])
+angular.module('intentApp', ['ngRoute'])
   .config ($routeProvider) ->
     $routeProvider
       .when '/',

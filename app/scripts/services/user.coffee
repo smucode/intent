@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('sportsideApp')
+angular.module('intentApp')
   .factory 'user', (jsonStore) ->
     console.log jsonStore.get 'sdlkj'
     # Service logic

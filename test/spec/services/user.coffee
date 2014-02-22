@@ -3,7 +3,7 @@
 describe 'Service: User', () ->
 
   # load the service's module
-  beforeEach module 'sportsideApp'
+  beforeEach module 'intentApp'
 
   # instantiate service
   user = {}

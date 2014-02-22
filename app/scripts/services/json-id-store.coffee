@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sportsideApp')
+angular.module('intentApp')
   .factory 'jsonIdStore', (jsonStore) ->
     init: (key) ->
       cache = jsonStore.get(key) or {}

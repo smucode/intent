@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('sportsideApp')
+angular.module('intentApp')
   .controller 'IntentCtrl', ($scope, $routeParams, $location, intents) ->
 
     $scope.intent = intents.byId $routeParams.id

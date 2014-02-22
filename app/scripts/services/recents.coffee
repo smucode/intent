@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sportsideApp')
+angular.module('intentApp')
   .factory 'recents', (jsonStore) ->
 
     recent = jsonStore.get('recent') || {}

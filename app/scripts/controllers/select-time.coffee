@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('sportsideApp')
+angular.module('intentApp')
   .controller 'SelectTimeCtrl', ($scope, $location, intents, pending) ->
     $scope.intent = pending.get()
     $scope.time = {}

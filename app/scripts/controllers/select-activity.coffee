@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('sportsideApp')
+angular.module('intentApp')
   .controller 'SelectActivityCtrl', ($scope, $location, pending, recents) ->
 
     $scope.intent = pending.get()

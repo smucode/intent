@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sportsideApp')
+angular.module('intentApp')
   .controller 'MainCtrl', ($scope, $location, intents, displayUtil) ->
 
     $scope.formatType = (type) ->

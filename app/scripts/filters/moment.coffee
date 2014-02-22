@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sportsideApp')
+angular.module('intentApp')
   .filter 'moment', () ->
     (date) ->
       moment(date).fromNow();
