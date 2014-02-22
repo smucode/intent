@@ -4,7 +4,7 @@ angular.module('intentApp')
   .factory 'jsonStore', () ->
 
     get: (key) ->
-      val = localStorage[key]
+      val =
       try
         JSON.parse val if val
       catch e

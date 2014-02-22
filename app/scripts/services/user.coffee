@@ -2,14 +2,8 @@
 
 angular.module('intentApp')
   .factory 'user', (jsonStore) ->
-    console.log jsonStore.get 'sdlkj'
-    # Service logic
-    # ...
+    get: ->
+      jsonStore.get 'authenticated_user'
 
-    meaningOfLife = 42
-
-    # Public API here
-    {
-      get: () ->
-        null
-    }
+    set: (id) ->
+      jsonStore.set 'authenticated_user', id
