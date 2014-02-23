@@ -21,8 +21,8 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: {
       // configurable paths
-      app: require('./bower.json').appPath || 'app',
-      dist: 'dist'
+      app: 'front/app',
+      dist: 'front/dist'
     },
 
     // Watches files for changes and runs tasks based on the changed files
