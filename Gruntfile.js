@@ -112,7 +112,9 @@ module.exports = function (grunt) {
           ]
         }]
       },
-      server: '.tmp'
+      server: '.tmp',
+      bower: 'front/app/bower_components',
+      npm: 'node_modules'
     },
 
     // Add vendor prefixed styles
@@ -371,6 +373,34 @@ module.exports = function (grunt) {
     }
   });
 
+  grunt.registerTask('run-bower-install', 'runs bower install as from the command line', function() {
+    var exec = require('child_process').exec;
+    var cb = this.async();
+    exec('bower install', {}, function(err, stdout, stderr) {
+      console.log(stdout);
+      console.error(stderr);
+      console.error(err);
+      cb();
+    });
+  });
+
+  grunt.registerTask('run-npm-install', 'runs npm install as from the command line', function() {
+    var exec = require('child_process').exec;
+    var cb = this.async();
+    exec('npm install', {}, function(err, stdout, stderr) {
+      console.log(stdout);
+      console.error(stderr);
+      console.error(err);
+      cb();
+    });
+  });  
+
+  grunt.registerTask('reinstall', [
+    'clean:bower',
+    'clean:npm',
+    'run-npm-install',
+    'run-bower-install'
+  ]);
 
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
