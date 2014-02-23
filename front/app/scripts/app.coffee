@@ -12,6 +12,10 @@ angular.module('intentApp', ['ngRoute'])
         templateUrl: 'views/main.html'
         controller: 'MainCtrl'
 
+      .when '/settings',
+        templateUrl: 'views/settings.html'
+        controller: 'SettingsCtrl'
+
       .when '/create',
         templateUrl: 'views/create-intent.html'
         controller: 'CreateIntentCtrl'
