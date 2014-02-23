@@ -4,15 +4,15 @@ angular.module('intentApp')
   .directive 'ntParticipants', ->
     restrict: 'E'
     templateUrl: 'views/nt-participants.html'
-    controller: ($scope, intents) ->
+    controller: ($scope, intents, user) ->
 
       $scope.join = ->
         ($scope.intent.messages ||= []).unshift
           date: new Date
-          body: 'SMU is tagging along!'
+          body: user.get() + ' is tagging along!'
 
         ($scope.intent.participants ||= []).unshift
-          name: 'SMU'
+          name: user.get()
 
         intents.save $scope.intent
 

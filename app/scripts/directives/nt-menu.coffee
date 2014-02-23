@@ -7,13 +7,14 @@ angular.module('intentApp')
     controller: ($scope, $window, $location) ->
 
       setClass = (path) ->
-        if path is "/"
+        console.log path
+        if path is "/list"
           $scope.leftClass = 'menu-icon fa fa-plus-circle fa-2x'
         else
           $scope.leftClass = 'menu-icon fa fa-chevron-left fa-2x'
 
       $scope.leftClick = ->
-        if $location.path() is '/'
+        if $location.path() is '/list'
           $location.path('create')
         else
           $window.history.back()

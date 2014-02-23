@@ -1,6 +1,6 @@
 <div class="intent-comments">
   <div class="comment" ng-repeat="message in intent.messages">
-    <span class="name">Stig Murberg:</span>
+    <span class="name">{{message.name}}</span>
     <span class="body">{{message.body}}</span>
     <span class="date">{{message.date | moment}}</span>
   </div>
