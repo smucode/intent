@@ -393,7 +393,7 @@ module.exports = function (grunt) {
       console.error(err);
       cb();
     });
-  });  
+  });
 
   grunt.registerTask('reinstall', [
     'clean:bower',
