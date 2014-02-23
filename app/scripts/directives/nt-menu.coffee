@@ -7,7 +7,6 @@ angular.module('intentApp')
     controller: ($scope, $window, $location) ->
 
       setClass = (path) ->
-        console.log path
         if path is "/list"
           $scope.leftClass = 'menu-icon fa fa-plus-circle fa-2x'
         else
