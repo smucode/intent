@@ -39,6 +39,8 @@ $fg2: #333;
 
 $btn: $belize_hole;
 
+$app_width: 640px;
+
 body * {
   font-family: 'Carrois Gothic', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -99,7 +101,7 @@ h3 {
 .main {
   height: 100%;
   margin: 0 auto;
-  max-width: 940px;
+  max-width: $app_width;
   background: white;
 }
 
@@ -116,7 +118,7 @@ nav.navbar {
     width: 100%;
     display: table;
     margin: 0 auto;
-    max-width: 940px;
+    max-width: $app_width;
     background: $h1bg;
     text-align: center;
     vertical-align: middle;
