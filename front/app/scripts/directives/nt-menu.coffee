@@ -14,9 +14,12 @@ angular.module('intentApp')
 
       $scope.leftClick = ->
         if $location.path() is '/list'
-          $location.path('create')
+          $location.path 'create'
         else
           $window.history.back()
+
+      $scope.rightClick = ->
+        $location.path 'settings'
 
       $scope.$on '$locationChangeSuccess', (scope, current, previous) ->
         arr = current.split '#'
