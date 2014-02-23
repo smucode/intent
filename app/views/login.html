@@ -1,0 +1,25 @@
+<div class="row" style="margin: 0 10px; text-align: center">
+
+  <h3>Login</h3>
+
+  <div class="form-group">
+    <input
+      type="text"
+      ng-model="userId"
+      class="form-control"
+      placeholder="Enter user ID"
+    />
+  </div>
+
+  <div>
+    <button
+      ng-click="login()"
+      class="btn btn-primary"
+      style="font-size: 20px"
+      ng-disabled="!userId">
+      Login
+    </button>
+  </div>
+
+</div>
+
