@@ -370,6 +370,15 @@ module.exports = function (grunt) {
         configFile: 'karma.conf.js',
         singleRun: false
       }
+    },
+    mochaTest: {
+      test: {
+        options: {
+          reporter: 'spec',
+          require: 'coffee-script/register'
+        },
+        src: ['back/test/spec/**/*.coffee']
+      }
     }
   });
 
@@ -431,11 +440,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('test-back', [
-    'clean:server',
-    'concurrent:test',
-    'autoprefixer',
-    'connect:test',
-    'karma'
+    'mochaTest'
   ]);
 
   grunt.registerTask('build', [
