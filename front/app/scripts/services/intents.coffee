@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('intentApp')
-  .factory 'intents', (recents, jsonIdStore) ->
+  .factory 'intents', (recents, jsonIdStore, user) ->
 
     # {
     #   type: 'intent' / 'desire'
@@ -9,7 +9,7 @@ angular.module('intentApp')
     #   date: 'str'
     # }
 
-    store = jsonIdStore.init 'intents'
+    store = null
 
     filter = (intents) ->
       now = moment()
@@ -37,6 +37,7 @@ angular.module('intentApp')
       store.get id
 
     fetch: ->
+      store = jsonIdStore.init 'intents_' + user.get()
       group sort filter store.all()
 
     remove: (id) ->
