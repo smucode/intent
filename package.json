@@ -40,7 +40,10 @@
     "karma-phantomjs-launcher": "~0.1.2",
     "karma": "~0.10.9",
     "karma-ng-html2js-preprocessor": "~0.1.0",
-    "grunt-karma": "~0.6.2"
+    "grunt-karma": "~0.6.2",
+    "grunt-mocha-test": "~0.9.3",
+    "coffee-script": "~1.7.1",
+    "chai": "~1.9.0"
   },
   "engines": {
     "node": ">=0.8.0"
