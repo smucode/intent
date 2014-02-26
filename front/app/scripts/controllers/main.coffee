@@ -6,7 +6,8 @@ angular.module('intentApp')
     $scope.formatType = (type) ->
       if type is 'intent' then 'is' else 'wants to'
 
-    $scope.intents = intents.fetch()
+    intents.list (intents) ->
+      $scope.intents = intents
 
     $scope.showIntent = (id) ->
       $location.path "intent/#{id}"

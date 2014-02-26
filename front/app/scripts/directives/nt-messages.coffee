@@ -11,5 +11,7 @@ angular.module('intentApp')
           name: user.get()
           date: new Date
           body: $scope.message
-        intents.save $scope.intent
+
+        intents.save $scope.intent, ->
+
         $scope.message = ''

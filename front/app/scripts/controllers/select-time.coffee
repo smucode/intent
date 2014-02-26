@@ -17,5 +17,6 @@ angular.module('intentApp')
         .toISOString()
 
       $scope.intent.time = $scope.time
-      intents.save $scope.intent
-      $location.path '/'
+
+      intents.save $scope.intent, ->
+        $location.path '/'

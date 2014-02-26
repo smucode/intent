@@ -14,7 +14,7 @@ angular.module('intentApp')
         ($scope.intent.participants ||= []).unshift
           name: user.get()
 
-        intents.save $scope.intent
+        intents.save $scope.intent, ->
 
       $scope.participantsMessage = (num = 0) ->
         switch num

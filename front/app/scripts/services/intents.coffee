@@ -33,16 +33,18 @@ angular.module('intentApp')
 
     # public
 
-    byId: (id) ->
-      store.get id
+    read: (id, callback) ->
+      callback store.get id
 
-    fetch: ->
+    list: (callback) ->
       store = jsonIdStore.init 'intents_' + user.get()
-      group sort filter store.all()
+      callback group sort filter store.all()
 
-    remove: (id) ->
+    remove: (id, callback) ->
       store.rem id
+      callback()
 
-    save: (intent) ->
+    save: (intent, callback) ->
       store.save(intent)
       recents.set intent # broadcast?
+      callback intent
