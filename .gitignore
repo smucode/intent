@@ -1,9 +1,8 @@
-node_modules
-dist
 .tmp
-.sass-cache
-front/app/bower_components
-intent.sublime-workspace
 .DS_STORE
+.sass-cache
 .ruby-version
-
+dist
+node_modules
+bower_components
+intent.sublime-workspace
