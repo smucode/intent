@@ -7,68 +7,25 @@ describe 'Service: intentProxy', () ->
 
   # instantiate service
   intentProxy = {}
-  beforeEach inject (_intentProxy_) ->
+  httpBackend = null
+
+  beforeEach module ($provide) ->
+    $provide.factory 'user', ->
+      get: -> 'foo'
+    null
+
+  beforeEach inject (_intentProxy_, $httpBackend) ->
     intentProxy = _intentProxy_
-    intentProxy.___reset()
+    httpBackend = $httpBackend
+    httpBackend
+      .when('GET', '/api/users/foo/intents')
+      .respond {foo: 'bar'}
 
-  it 'should list intents', ->
-    runs ->
-      intentProxy.get 'foo', (@intents) =>
+  # it 'should list intents', ->
+  #   httpBackend.expect 'GET', '/api/users/foo/intents'
 
-    waitsFor -> @intents
+  #   runs -> intentProxy.list (@intents) =>
+  #   waitsFor -> @intents
+  #   runs -> expect(@intents).toEqual foo: 'bar'
 
-    runs ->
-      expect(@intents.length).toBe 0
-
-  it 'should create and fetch intent', ->
-    runs ->
-      intentProxy.post 'foo', {foo: 'bar'}, (@intent) =>
-
-    waitsFor -> @intent
-
-    runs ->
-      expect(@intent.id).toBeTruthy()
-      intentProxy.get 'foo', (@intents) =>
-
-    waitsFor -> @intents
-
-    runs ->
-      expect(@intents.length).toBe 1
-      expect(@intents[0].id).toBeTruthy()
-      expect(@intents[0].foo).toBe 'bar'
-
-  it 'should update intents', ->
-    runs ->
-      intentProxy.put 'foo', {foo: 'qux'}, (@intent) =>
-
-    waitsFor -> @intent
-
-    runs ->
-      expect(@intent.foo).toBe 'qux'
-      intentProxy.get 'foo', (@intents) =>
-
-    waitsFor -> @intents
-
-    runs ->
-      expect(@intents.length).toBe 1
-
-  it 'should delete intents', ->
-    runs ->
-      intentProxy.post 'foo', {foo: 'bar'}, (@intent) =>
-
-    waitsFor -> @intent
-
-    runs ->
-      expect(@intent.id).toBeTruthy()
-      intentProxy.del 'foo', @intent.id, () =>
-        @deleted = true
-
-    waitsFor -> @deleted
-
-    runs ->
-      intentProxy.get 'foo', (@intents) =>
-
-    waitsFor -> @intents
-
-    runs ->
-      expect(@intents.length).toBe 0
+  #   httpBackend.flush()
