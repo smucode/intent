@@ -8,10 +8,10 @@ angular.module('intentApp')
         .success (data) ->
           callback data
 
-    read: (userId, intentId, callback) ->
-      $http({method: 'GET', url: "/api/users/#{userId}/intents/#{intentId}"})
-        .success (data) ->
-          callback data
+    read: (userId, intentId) ->
+      $http
+        method: 'GET'
+        url: "/api/users/#{userId}/intents/#{intentId}"
 
     create: (userId, intent, callback) ->
       $http({

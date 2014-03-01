@@ -35,5 +35,8 @@ angular.module('intentApp', ['ngRoute'])
       .when '/intent/:id',
         templateUrl: 'views/intent.html'
         controller: 'IntentCtrl'
+        resolve:
+          intent: ($route, intentProxy, user) ->
+            intentProxy.read user.get(), $route.current.params.id
 
       .otherwise redirectTo: '/'

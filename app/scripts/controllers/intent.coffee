@@ -1,10 +1,9 @@
 'use strict'
 
 angular.module('intentApp')
-  .controller 'IntentCtrl', ($scope, $routeParams, $location, intents) ->
+  .controller 'IntentCtrl', ($scope, $location, intents, intent) ->
 
-    intents.read $routeParams.id, (intent) ->
-      $scope.intent = intent
+    $scope.intent = intent.data
 
     $scope.formatType = (type) ->
       if type is 'intent' then 'is' else 'wants to'
