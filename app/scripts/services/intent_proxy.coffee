@@ -29,7 +29,6 @@ angular.module('intentApp')
 
     del: (userId, intentId, callback) ->
       $http({
-        data: intent
         method: 'DELETE'
-        url: "/api/users/#{userId}/intents/#{intent.id}"
+        url: "/api/users/#{userId}/intents/#{intentId}"
       }).success callback
