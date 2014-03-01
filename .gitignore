@@ -4,5 +4,5 @@
 .ruby-version
 dist
 node_modules
-bower_components
+bp_app/bower_components
 intent.sublime-workspace
