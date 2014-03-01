@@ -3,10 +3,10 @@
 angular.module('intentApp')
   .factory 'intentProxy', ($http) ->
 
-    list: (userId, callback) ->
-      $http({method: 'GET', url: "/api/users/#{userId}/intents"})
-        .success (data) ->
-          callback data
+    list: (userId) ->
+      $http
+        method: 'GET'
+        url: "/api/users/#{userId}/intents"
 
     read: (userId, intentId) ->
       $http

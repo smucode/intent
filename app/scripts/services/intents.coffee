@@ -33,11 +33,8 @@ angular.module('intentApp')
 
     # public
 
-    read: (id, callback) ->
-      intentProxy.read user.get(), id, callback
-
     list: (callback) ->
-      intentProxy.list user.get(), (intents) ->
+      intentProxy.list(user.get()).success (intents) ->
         callback group sort filter intents
 
     remove: (id, callback) ->
