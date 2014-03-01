@@ -1,8 +1,8 @@
 'use strict';
 
-var express = require('express'),
+var fs = require('fs'),
     path = require('path'),
-    fs = require('fs'),
+    express = require('express'),
     mongoose = require('mongoose');
 
 /**
@@ -28,7 +28,7 @@ fs.readdirSync(modelsPath).forEach(function (file) {
 
 // Populate empty DB with sample data
 require('./lib/config/dummydata');
-  
+
 // Passport Configuration
 var passport = require('./lib/config/passport');
 
