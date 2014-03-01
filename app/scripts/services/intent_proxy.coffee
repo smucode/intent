@@ -1,30 +1,35 @@
 'use strict'
 
 angular.module('intentApp')
-  .factory 'intentProxy', () ->
+  .factory 'intentProxy', ($http) ->
 
-    # get   '/user/<username>/intents'
-    # post: '/user/<username>/intents'
-    # put:  '/user/<username>/intents/<id>'
-    # del:  '/user/<username>/intents/<id>'
+    list: (userId, callback) ->
+      $http({method: 'GET', url: "/api/users/#{userId}/intents"})
+        .success (data) ->
+          callback data
 
-    map = {}
+    read: (userId, intentId, callback) ->
+      $http({method: 'GET', url: "/api/users/#{userId}/intents/#{intentId}"})
+        .success (data) ->
+          callback data
 
-    ___reset: ->
-      map = {}
+    create: (userId, intent, callback) ->
+      $http({
+        data: intent
+        method: 'POST'
+        url: "/api/users/#{userId}/intents"
+      }).success (data) -> callback data
 
-    get: (userId, callback) ->
-      callback _.values(map)
-
-    post: (userId, intent, callback) ->
-      intent.id = (Math.random() * 100000).toString(16)
-      map[intent.id] = intent
-      callback intent
-
-    put: (userId, intent, callback) ->
-      map[intent.id] = intent
-      callback intent
+    update: (userId, intent, callback) ->
+      $http({
+        data: intent
+        method: 'PUT'
+        url: "/api/users/#{userId}/intents/#{intent.id}"
+      }).success (data) -> callback data
 
     del: (userId, intentId, callback) ->
-      delete map[intentId]
-      callback()
+      $http({
+        data: intent
+        method: 'DELETE'
+        url: "/api/users/#{userId}/intents/#{intent.id}"
+      }).success callback

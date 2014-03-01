@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('intentApp')
-  .factory 'intents', (recents, jsonIdStore, user) ->
+  .factory 'intents', (recents, jsonIdStore, intentProxy, user) ->
 
     # {
     #   type: 'intent' / 'desire'
@@ -34,17 +34,17 @@ angular.module('intentApp')
     # public
 
     read: (id, callback) ->
-      callback store.get id
+      intentProxy.read user.get(), id, callback
 
     list: (callback) ->
-      store = jsonIdStore.init 'intents_' + user.get()
-      callback group sort filter store.all()
+      intentProxy.list user.get(), (intents) ->
+        callback group sort filter intents
 
     remove: (id, callback) ->
-      store.rem id
-      callback()
+      intentProxy.del user.get(), id, callback
 
     save: (intent, callback) ->
-      store.save(intent)
-      recents.set intent # broadcast?
-      callback intent
+      intent.id = intent.id || ~~(Math.random() * 1000000)
+      intentProxy.update user.get(), intent, (intent) ->
+        callback intent
+        recents.set intent # broadcast?

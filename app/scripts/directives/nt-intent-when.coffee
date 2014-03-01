@@ -7,6 +7,5 @@ angular.module('intentApp')
       date = displayUtil.formatDate(scope.intent.date)
       hours = scope.intent.time.hours
       mins = scope.intent.time.minutes
-
       element.text "#{date} at #{hours}:#{mins}"
   )
