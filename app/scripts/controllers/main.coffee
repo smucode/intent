@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('intentApp')
-  .controller 'MainCtrl', ($scope, $location, intents, displayUtil) ->
+  .controller 'MainCtrl', ($scope, $location, intentProxy, displayUtil) ->
 
     $scope.formatType = (type) ->
       if type is 'intent' then 'is' else 'wants to'
 
-    intents.list (intents) ->
+    intentProxy.list (intents) ->
       $scope.intents = intents
 
     $scope.showIntent = (id) ->

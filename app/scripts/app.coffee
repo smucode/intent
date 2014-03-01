@@ -36,7 +36,9 @@ angular.module('intentApp', ['ngRoute'])
         templateUrl: 'views/intent.html'
         controller: 'IntentCtrl'
         resolve:
-          intent: ($route, intentProxy, user) ->
-            intentProxy.read user.get(), $route.current.params.id
+          intent: ($q, $route, intentProxy) ->
+            deferred = $q.defer()
+            intentProxy.read $route.current.params.id, deferred.resolve
+            deferred.promise
 
       .otherwise redirectTo: '/'

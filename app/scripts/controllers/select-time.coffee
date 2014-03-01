@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('intentApp')
-  .controller 'SelectTimeCtrl', ($scope, $location, intents, pending) ->
+  .controller 'SelectTimeCtrl', ($scope, $location, intentProxy, pending) ->
     $scope.intent = pending.get()
     $scope.time = {}
 
@@ -18,5 +18,5 @@ angular.module('intentApp')
 
       $scope.intent.time = $scope.time
 
-      intents.save $scope.intent, ->
+      intentProxy.create $scope.intent, ->
         $location.path '/'

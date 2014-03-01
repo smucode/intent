@@ -11,7 +11,7 @@ describe 'Service: intentProxy', () ->
     intentProxy = _intentProxy_
     intentProxy.___reset()
 
-  it 'should not contain any intents', ->
+  it 'should list intents', ->
     runs ->
       intentProxy.get 'foo', (@intents) =>
 

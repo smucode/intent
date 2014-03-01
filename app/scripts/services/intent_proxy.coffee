@@ -1,33 +1,41 @@
 'use strict'
 
 angular.module('intentApp')
-  .factory 'intentProxy', ($http) ->
+  .factory 'intentProxy', ($q, $http, user, intentGrouper) ->
 
-    list: (userId) ->
+    list: (success) ->
+      userId = user.get()
       $http
         method: 'GET'
         url: "/api/users/#{userId}/intents"
+      .success (intents) ->
+        success intentGrouper.group intents
 
-    read: (userId, intentId) ->
+    read: (intentId, success) ->
+      userId = user.get()
       $http
         method: 'GET'
         url: "/api/users/#{userId}/intents/#{intentId}"
+      .success success
 
-    create: (userId, intent, callback) ->
+    create: (intent, callback) ->
+      userId = user.get()
       $http({
         data: intent
         method: 'POST'
         url: "/api/users/#{userId}/intents"
       }).success (data) -> callback data
 
-    update: (userId, intent, callback) ->
+    update: (intent, callback) ->
+      userId = user.get()
       $http({
         data: intent
         method: 'PUT'
         url: "/api/users/#{userId}/intents/#{intent.id}"
       }).success (data) -> callback data
 
-    del: (userId, intentId, callback) ->
+    del: (intentId, callback) ->
+      userId = user.get()
       $http({
         method: 'DELETE'
         url: "/api/users/#{userId}/intents/#{intentId}"
