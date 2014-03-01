@@ -18,25 +18,26 @@ angular.module('intentApp')
         url: "/api/users/#{userId}/intents/#{intentId}"
       .success success
 
-    create: (intent, callback) ->
+    create: (intent, success) ->
       userId = user.get()
+      intent.userId = userId
       $http({
         data: intent
         method: 'POST'
         url: "/api/users/#{userId}/intents"
-      }).success (data) -> callback data
+      }).success success
 
-    update: (intent, callback) ->
+    update: (intent, success) ->
       userId = user.get()
       $http({
         data: intent
         method: 'PUT'
         url: "/api/users/#{userId}/intents/#{intent.id}"
-      }).success (data) -> callback data
+      }).success success
 
-    del: (intentId, callback) ->
+    del: (intentId, success) ->
       userId = user.get()
       $http({
         method: 'DELETE'
         url: "/api/users/#{userId}/intents/#{intentId}"
-      }).success callback
+      }).success success

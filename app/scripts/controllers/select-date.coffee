@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('intentApp')
-  .controller 'SelectDateCtrl', ($scope, $location, intents, pending) ->
+  .controller 'SelectDateCtrl', ($scope, $location, pending) ->
     $scope.intent = pending.get()
 
     if $scope.intent.type is 'intent'

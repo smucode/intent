@@ -4,7 +4,7 @@ angular.module('intentApp')
   .directive 'ntMessages', ->
     restrict: 'E'
     templateUrl: 'views/nt-messages.html'
-    controller: ($scope, intents, user) ->
+    controller: ($scope, intentProxy, user) ->
 
       $scope.postMessage = ->
         ($scope.intent.messages ||= []).unshift
@@ -12,6 +12,6 @@ angular.module('intentApp')
           date: new Date
           body: $scope.message
 
-        intents.save $scope.intent, ->
+        intentProxy.update $scope.intent, ->
 
         $scope.message = ''

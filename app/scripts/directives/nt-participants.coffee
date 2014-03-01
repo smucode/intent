@@ -4,7 +4,7 @@ angular.module('intentApp')
   .directive 'ntParticipants', ->
     restrict: 'E'
     templateUrl: 'views/nt-participants.html'
-    controller: ($scope, intents, user) ->
+    controller: ($scope, intentProxy, user) ->
 
       $scope.join = ->
         ($scope.intent.messages ||= []).unshift
@@ -14,7 +14,7 @@ angular.module('intentApp')
         ($scope.intent.participants ||= []).unshift
           name: user.get()
 
-        intents.save $scope.intent, ->
+        intentProxy.update $scope.intent, ->
 
       $scope.participantsMessage = (num = 0) ->
         switch num

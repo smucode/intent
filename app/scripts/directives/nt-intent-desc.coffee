@@ -1,10 +1,10 @@
 'use strict'
 
 angular.module('intentApp')
-  .directive('ntIntentDesc', (user) ->
+  .directive('ntIntentDesc', ->
     restrict: 'A'
     link: (scope, element, attrs) ->
-      name = user.get()
+      name = scope.intent.userId
       type = scope.formatType(scope.intent.type)
       activity = scope.intent.activity
       element.text "#{name} #{type} #{activity}"
