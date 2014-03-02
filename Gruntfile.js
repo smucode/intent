@@ -9,11 +9,33 @@
 
 module.exports = function (grunt) {
 
+  var exec = require('child_process').exec;
+  var spawn = require('child_process').spawn;
+
+
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
+
+  var logExec = function (err, stdout, stderr) {
+      grunt.log.writeln(stdout);
+      if (stderr) {
+        grunt.log.error(stderr);
+      }
+      if (err !== null) {
+        grunt.log.error(err);
+      }
+  };
+
+  var mongod = function () {
+    grunt.log.writeln('starting mongod');
+    var daemon = spawn('mongod', [], { 
+      stdio: 'ignore' //all output is to /usr/local/var/log/mongodb/mongo.log anyway
+    });
+    daemon.unref();
+  };
 
   // Define the configuration for all the tasks
   grunt.initConfig({
@@ -419,11 +441,13 @@ module.exports = function (grunt) {
     this.async();
   });
 
-  grunt.registerTask('serve', function (target) {
-    if (target === 'dist') {
-      return grunt.task.run(['build', 'express:prod', 'open', 'express-keepalive']);
+  grunt.registerTask('serve', function () {
+    if (grunt.option('startMongo')) {
+      mongod();
     }
-
+    if (grunt.option('target') === 'dist') {
+      return grunt.task.run(['build', 'express:prod', 'open', 'express-keepalive']);
+    }    
     grunt.task.run([
       'clean:server',
       'bower-install',
@@ -464,7 +488,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('heroku', function () {
-    grunt.log.warn('The `heroku` task has been deprecated. Use `grunt build` to build for deployment.');
+    var exec = require('child_process').exec;warn('The `heroku` task has been deprecated. Use `grunt build` to build for deployment.');
     grunt.task.run(['build']);
   });
 
@@ -478,20 +502,15 @@ module.exports = function (grunt) {
     var exec = require('child_process').exec;
     var cb = this.async();
     exec('bower install', {}, function(err, stdout, stderr) {
-      console.log(stdout);
-      console.error(stderr);
-      console.error(err);
+      logExec(err, stdout, stderr);
       cb();
     });
   });
 
   grunt.registerTask('run-npm-install', 'runs npm install as from the command line', function() {
-    var exec = require('child_process').exec;
     var cb = this.async();
     exec('npm install', {}, function(err, stdout, stderr) {
-      console.log(stdout);
-      console.error(stderr);
-      console.error(err);
+      logExec(err, stdout, stderr);
       cb();
     });
   });
