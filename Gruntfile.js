@@ -442,7 +442,7 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('serve', function () {
-    if (grunt.option('startMongo')) {
+    if (!grunt.option('no-mongo')) {
       mongod();
     }
     if (grunt.option('target') === 'dist') {
