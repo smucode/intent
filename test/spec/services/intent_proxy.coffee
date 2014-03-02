@@ -6,26 +6,36 @@ describe 'Service: intentProxy', () ->
   beforeEach module 'intentApp'
 
   # instantiate service
-  intentProxy = {}
+  scope = null
   httpBackend = null
+  intentProxy = null
 
   beforeEach module ($provide) ->
     $provide.factory 'user', ->
       get: -> 'foo'
+    $provide.factory 'intentGrouper', ->
+      group: (intents) -> intents
     null
 
-  beforeEach inject (_intentProxy_, $httpBackend) ->
-    intentProxy = _intentProxy_
+  beforeEach inject ($rootScope, $httpBackend, _intentProxy_) ->
+    scope = $rootScope.$new()
     httpBackend = $httpBackend
+    intentProxy = _intentProxy_
+
     httpBackend
       .when('GET', '/api/users/foo/intents')
       .respond {foo: 'bar'}
 
-  # it 'should list intents', ->
-  #   httpBackend.expect 'GET', '/api/users/foo/intents'
+  it 'should list intents', ->
+    httpBackend.expect 'GET', '/api/users/foo/intents'
 
-  #   runs -> intentProxy.list (@intents) =>
-  #   waitsFor -> @intents
-  #   runs -> expect(@intents).toEqual foo: 'bar'
+    runs ->
+      intentProxy.list (@intents) =>
+      scope.$digest()
+      httpBackend.flush()
 
-  #   httpBackend.flush()
+    waitsFor -> @intents
+
+    runs ->
+      expect(@intents).toEqual foo: 'bar'
+
