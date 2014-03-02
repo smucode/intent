@@ -2,7 +2,7 @@
 
 angular.module('intentApp')
   .directive 'ntTimepicker', () ->
-    templateUrl: 'views/nt-timepicker.html'
+    templateUrl: 'partials/nt-timepicker.html'
     restrict: 'E'
     controller: ($scope) ->
 

@@ -3,7 +3,7 @@
 angular.module('intentApp')
   .directive 'ntMessages', ->
     restrict: 'E'
-    templateUrl: 'views/nt-messages.html'
+    templateUrl: 'partials/nt-messages.html'
     controller: ($scope, intentProxy, user) ->
 
       $scope.postMessage = ->

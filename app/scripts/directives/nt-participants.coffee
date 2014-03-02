@@ -3,7 +3,7 @@
 angular.module('intentApp')
   .directive 'ntParticipants', ->
     restrict: 'E'
-    templateUrl: 'views/nt-participants.html'
+    templateUrl: 'partials/nt-participants.html'
     controller: ($scope, intentProxy, user) ->
 
       $scope.join = ->

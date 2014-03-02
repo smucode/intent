@@ -2,7 +2,7 @@
 
 angular.module('intentApp')
   .directive 'ntMenu', () ->
-    templateUrl: 'views/nt-menu.html'
+    templateUrl: 'partials/nt-menu.html'
     restrict: 'E'
     controller: ($scope, $window, $location) ->
 

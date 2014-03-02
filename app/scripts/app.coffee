@@ -5,35 +5,35 @@ angular.module('intentApp', ['ngRoute'])
     $routeProvider
 
       .when '/',
-        templateUrl: 'views/login.html'
+        templateUrl: 'partials/login.html'
         controller: 'LoginCtrl'
 
       .when '/list',
-        templateUrl: 'views/main.html'
+        templateUrl: 'partials/main.html'
         controller: 'MainCtrl'
 
       .when '/settings',
-        templateUrl: 'views/settings.html'
+        templateUrl: 'partials/settings.html'
         controller: 'SettingsCtrl'
 
       .when '/create',
-        templateUrl: 'views/create-intent.html'
+        templateUrl: 'partials/create-intent.html'
         controller: 'CreateIntentCtrl'
 
       .when '/select-activity',
-        templateUrl: 'views/select-activity.html'
+        templateUrl: 'partials/select-activity.html'
         controller: 'SelectActivityCtrl'
 
       .when '/select-date',
-        templateUrl: 'views/select-date.html'
+        templateUrl: 'partials/select-date.html'
         controller: 'SelectDateCtrl'
 
       .when '/select-time',
-        templateUrl: 'views/select-time.html'
+        templateUrl: 'partials/select-time.html'
         controller: 'SelectTimeCtrl'
 
       .when '/intent/:id',
-        templateUrl: 'views/intent.html'
+        templateUrl: 'partials/intent.html'
         controller: 'IntentCtrl'
         resolve:
           intent: ($q, $route, intentProxy) ->
