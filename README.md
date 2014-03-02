@@ -16,18 +16,20 @@ http://intentapp.herokuapp.com/
 
 Start by running:
 
-    grunt serve --startMongo
+    grunt serve 
 
-This will start the app development version and mongod. --startMongo option spawns mongo before starting the app.
+This will start the app development version and mongod. you can supply --no-mongo option to avoid starting mongo.
+
 In this mode all files are watched. This means tests will run if a file that is part of the testsuite is changed.
 
 # Running the prod version locally
 
 To run the production version of the app do:
 
-    grunt serve --target=dist --startMongo
+    grunt serve --target=dist
 
 This will start mongo then build and start the app.
+If you already have mongo running you can skip starting mongo by supplying the --no-mongo option.
 
 # Building
 
