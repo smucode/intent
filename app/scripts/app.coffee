@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('intentApp', ['ngRoute'])
+angular.module('intentApp', ['ngRoute', 'ngMd5'])
   .config ($routeProvider) ->
     $routeProvider
 

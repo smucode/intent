@@ -8,9 +8,7 @@ angular.module('intentApp')
 
       $scope.postMessage = ->
         ($scope.intent.messages ||= []).unshift
-          user:
-            id: user.id
-            img: user.img
+          user: user.toJSON()
           date: new Date
           body: $scope.message
 

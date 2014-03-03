@@ -9,7 +9,6 @@ angular.module('intentApp')
 
     $scope.user =
       id: user.id
-      img: 'https://0.gravatar.com/avatar/c15e0631260e58737ced89e685ced034'
 
     $scope.login = ->
       user.login $scope.user

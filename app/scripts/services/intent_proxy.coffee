@@ -17,10 +17,7 @@ angular.module('intentApp')
       .success success
 
     create: (intent, success) ->
-      intent.user =
-        id: user.id
-        img: user.img
-
+      intent.user = user.toJSON()
       $http({
         data: intent
         method: 'POST'

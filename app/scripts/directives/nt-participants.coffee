@@ -7,9 +7,7 @@ angular.module('intentApp')
     controller: ($scope, intentProxy, user) ->
 
       $scope.join = ->
-        ($scope.intent.participants ||= []).unshift
-          id: user.id
-          img: user.img
+        ($scope.intent.participants ||= []).unshift user.toJSON()
 
         intentProxy.update $scope.intent, ->
 
