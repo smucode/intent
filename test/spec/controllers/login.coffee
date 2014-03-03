@@ -8,9 +8,7 @@ describe 'Controller: LoginCtrl', () ->
   LoginCtrl = {}
 
   scope = {}
-  user =
-    get: ->
-    set: (@id) ->
+  user = login: (@attrs) ->
   location = path: (@path) ->
 
   # Initialize the controller and a mock scope
@@ -25,8 +23,11 @@ describe 'Controller: LoginCtrl', () ->
   assert = chai.assert
 
   it 'should set user and redirect', () ->
-    scope.userId = 'foo'
+    scope.user =
+      id: 'foo'
+      img: 'bar'
     scope.login()
-    assert.equal user.id, 'foo'
+    assert.equal user.attrs.id, 'foo'
+    assert.equal user.attrs.img, 'bar'
     assert.equal location.path, 'list'
 

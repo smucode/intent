@@ -6,9 +6,7 @@ describe 'Controller: SettingsCtrl', () ->
 
   scope = {}
   SettingsCtrl = {}
-  user =
-    get: ->
-    set: (@id) ->
+  user = logout: ->
   location = path: (@path) ->
 
   beforeEach inject ($controller, $rootScope) ->
@@ -22,6 +20,7 @@ describe 'Controller: SettingsCtrl', () ->
   assert = chai.assert
 
   it 'should log out the authenticated user', () ->
+    spyOn user, 'logout'
     scope.logout()
-    assert.equal user.id, null
+    expect(user.logout).toHaveBeenCalled()
     assert.equal location.path, 'login'

@@ -4,40 +4,38 @@ angular.module('intentApp')
   .factory 'intentProxy', ($q, $http, user, intentGrouper) ->
 
     list: (success) ->
-      userId = user.get()
       $http
         method: 'GET'
-        url: "/api/users/#{userId}/intents"
+        url: "/api/users/#{user.id}/intents"
       .success (intents) ->
         success intentGrouper.group intents
 
     read: (intentId, success) ->
-      userId = user.get()
       $http
         method: 'GET'
-        url: "/api/users/#{userId}/intents/#{intentId}"
+        url: "/api/users/#{user.id}/intents/#{intentId}"
       .success success
 
     create: (intent, success) ->
-      userId = user.get()
-      intent.userId = userId
+      intent.user =
+        id: user.id
+        img: user.img
+
       $http({
         data: intent
         method: 'POST'
-        url: "/api/users/#{userId}/intents"
+        url: "/api/users/#{user.id}/intents"
       }).success success
 
     update: (intent, success) ->
-      userId = user.get()
       $http({
         data: intent
         method: 'PUT'
-        url: "/api/users/#{userId}/intents/#{intent.id}"
+        url: "/api/users/#{user.id}/intents/#{intent.id}"
       }).success success
 
     del: (intentId, success) ->
-      userId = user.get()
       $http({
         method: 'DELETE'
-        url: "/api/users/#{userId}/intents/#{intentId}"
+        url: "/api/users/#{user.id}/intents/#{intentId}"
       }).success success

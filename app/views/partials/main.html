@@ -9,8 +9,8 @@
     ng-repeat="(id, intent) in arr">
 
     <img
-      src="images/bc.jpg"
-      style="height: 50px; position: absolute; left: 10px"
+      ng-src="http://proxy.boxresizer.com/convert?shape=pad&resize=50x50&source={{intent.user.img}}"
+      style="width: 50px; position: absolute; left: 10px"
     />
 
     <span nt-intent-desc></span>

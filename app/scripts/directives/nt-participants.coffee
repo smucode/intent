@@ -9,10 +9,10 @@ angular.module('intentApp')
       $scope.join = ->
         ($scope.intent.messages ||= []).unshift
           date: new Date
-          body: user.get() + ' is tagging along!'
+          body: user.id + ' is tagging along!'
 
         ($scope.intent.participants ||= []).unshift
-          name: user.get()
+          name: user.id
 
         intentProxy.update $scope.intent, ->
 

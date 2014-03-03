@@ -2,8 +2,17 @@
 
 angular.module('intentApp')
   .factory 'user', (jsonStore) ->
-    get: ->
-      jsonStore.get 'authenticated_user'
+    user = jsonStore.get('authenticated_user') || {}
 
-    set: (id) ->
-      jsonStore.set 'authenticated_user', id
+    user.logout = ->
+      for key, val of user
+        unless key is 'login' or key is 'logout'
+          delete user[key]
+
+    user.login = (attrs) ->
+      for key, val of attrs
+        unless key is 'login' or key is 'logout'
+          user[key] = val
+      jsonStore.set 'authenticated_user', attrs
+
+    user
