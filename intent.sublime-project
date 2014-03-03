@@ -6,6 +6,8 @@
       "path": ".",
       "folder_exclude_patterns": [
         ".tmp",
+        "dist",
+        "trash",
         ".sass-cache",
         "node_modules",
         "app/bower_components"
