@@ -11,6 +11,7 @@ module.exports = function (grunt) {
 
   var exec = require('child_process').exec;
   var spawn = require('child_process').spawn;
+  var inquirer = require("inquirer");
 
 
   // Load grunt tasks automatically
@@ -422,6 +423,16 @@ module.exports = function (grunt) {
         configFile: 'karma.conf.js',
         singleRun: true
       }
+    },
+    exec: {
+      git_stash_dist: { cmd: 'git stash', cwd: 'dist' },
+      git_pull_dist: { cmd: 'git pull heroku master', cwd: 'dist' },
+      git_stash_pop_dist: { cmd: 'git stash pop', cwd: 'dist', exitCode: [0,1]},
+      git_add_dist: { cmd: 'git add -A', cwd: 'dist' },
+      git_status: { cmd: 'git status', cwd: 'dist' },
+      git_commit_dist: { cmd: 'git commit -m "heroku deploy"', cwd: 'dist' },
+      git_push_dist_heroku: { cmd: 'git push heroku master', cwd: 'dist' },
+      git_reset_hard_heroku_master: { cmd: 'git reset --hard heroku/master', cwd: 'dist' }
     }
   });
 
@@ -487,10 +498,38 @@ module.exports = function (grunt) {
     'usemin'
   ]);
 
-  grunt.registerTask('heroku', function () {
-    var exec = require('child_process').exec;warn('The `heroku` task has been deprecated. Use `grunt build` to build for deployment.');
-    grunt.task.run(['build']);
+  grunt.registerTask('deploy', function () {
+    var cb = this.async(),
+          q = [{
+            type: "confirm",
+            name: "ok",
+            message: "Ready to deploy",
+            default: false
+          }];
+    inquirer.prompt( q, function( a ) {
+      if (a.ok) {
+        grunt.log.ok('proceeding with deployment');
+        grunt.task.run([
+          'exec:git_commit_dist',
+          'exec:git_push_dist_heroku'
+        ]);
+      } else {
+        grunt.log.warn('stopping deployment.');
+        grunt.task.run(['exec:git_reset_hard_heroku_master']);
+      }
+      cb();
+    });
   });
+
+  grunt.registerTask('heroku', [
+      'build',
+      'exec:git_stash_dist',
+      'exec:git_pull_dist',
+      'exec:git_stash_pop_dist',
+      'exec:git_add_dist',
+      'exec:git_status',
+      'deploy'
+  ]);
 
   grunt.registerTask('default', [
     'newer:jshint',

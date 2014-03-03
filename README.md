@@ -42,7 +42,17 @@ Once this is done, proceed with deployment to heroku.
 
 # Deploying to heroku
 
-TODO doc
+There is a grunt task that will deploy to heroku. 
+
+    grunt heroku
+
+For this task to work you need to have set up the dist directory as a git repo with heroku as the remote:
+
+    cd dist
+    git init
+    git remote add heroku git@heroku.com:intentapp.git
+    git pull heroku master
+    git branch -u heroku/master
 
 # Other grunt tasks worth mentioning
 
