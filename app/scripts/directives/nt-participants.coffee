@@ -7,12 +7,9 @@ angular.module('intentApp')
     controller: ($scope, intentProxy, user) ->
 
       $scope.join = ->
-        ($scope.intent.messages ||= []).unshift
-          date: new Date
-          body: user.id + ' is tagging along!'
-
         ($scope.intent.participants ||= []).unshift
-          name: user.id
+          id: user.id
+          img: user.img
 
         intentProxy.update $scope.intent, ->
 

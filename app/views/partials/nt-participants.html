@@ -10,6 +10,11 @@
     </button>
   </div>
   <div class="thumbs">
-    <span class="fa fa-user" ng-repeat="p in intent.participants"></span>
+    <span ng-repeat="user in intent.participants">
+      <img
+        ng-src="http://proxy.boxresizer.com/convert?shape=pad&resize=50x50&source={{user.img}}"
+        style="width: 50px;"
+      />
+    </span>
   </div>
 </div>
