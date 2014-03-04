@@ -16,9 +16,8 @@
       />
     </span>
     <span ng-repeat="user in intent.participants">
-      <img
-        ng-src="http://www.gravatar.com/avatar/{{ user.email | gravatar }}?s=50&d=mm"
-        style="width: 50px;"
+      <gravatar
+        hash="{{ user.email | gravatar }}"
       />
     </span>
   </div>

@@ -1,20 +1,22 @@
-<h2 class="bg2 clearfix">
-  <a href class="fr fa fa-trash-o" ng-click="del()">
-    <span>Cancel</span>
-  </a>
-</h2>
+<div class="clearfix show-intent">
+  <h2 class="bg2 clearfix">
+    <a href class="fr fa fa-trash-o" ng-click="del()">
+      <span>Cancel</span>
+    </a>
+  </h2>
 
-<div style="text-align: center; padding-top: 10px;">
-  <gravatar
-    size="100"
-    hash="{{ intent.user.email | gravatar }}"
-  />
-  <h3 nt-intent-desc></h3>
-  <div style="text-align: center; padding-bottom: 20px;">
-    <span nt-intent-when></span>
+  <div style="text-align: center; padding-top: 10px;">
+    <gravatar
+      size="100"
+      hash="{{ intent.user.email | gravatar }}"
+    />
+    <h3 nt-intent-desc></h3>
+    <div style="text-align: center; padding-bottom: 20px;">
+      <span nt-intent-when></span>
+    </div>
   </div>
+
+  <nt-participants></nt-participants>
+
+  <nt-messages></nt-messages>
 </div>
-
-<nt-participants></nt-participants>
-
-<nt-messages></nt-messages>

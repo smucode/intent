@@ -224,9 +224,13 @@ nav.navbar {
     clear: both;
     padding-top: 10px;
 
-    span {
+    img {
       padding: 0 10px 10px 0;
       display: inline-block;
     }
   }
+}
+
+.show-intent {
+  background: white;
 }
