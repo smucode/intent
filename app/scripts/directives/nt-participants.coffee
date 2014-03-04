@@ -4,7 +4,7 @@ angular.module('intentApp')
   .directive 'ntParticipants', ->
     restrict: 'E'
     templateUrl: 'partials/nt-participants.html'
-    controller: ($scope, intentProxy, user) ->
+    controller: ($scope, md5, intentProxy, user) ->
 
       $scope.join = ->
         ($scope.intent.participants ||= []).unshift user.toJSON()

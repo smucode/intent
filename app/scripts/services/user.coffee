@@ -2,7 +2,12 @@
 
 angular.module('intentApp')
   .factory 'user', (jsonStore) ->
-    user = jsonStore.get('authenticated_user') || {}
+
+    # this crazy ass pattern is probably not a great idea...
+
+    user = jsonStore.get('authenticated_user')
+    unless _.isObject user then user = {}
+
 
     user.toJSON = ->
       u = {}

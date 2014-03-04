@@ -4,7 +4,7 @@ angular.module('intentApp')
   .directive 'ntMessages', ->
     restrict: 'E'
     templateUrl: 'partials/nt-messages.html'
-    controller: ($scope, intentProxy, user) ->
+    controller: ($scope, md5, intentProxy, user) ->
 
       $scope.postMessage = ->
         ($scope.intent.messages ||= []).unshift

@@ -21,6 +21,7 @@
 
     <div style="text-align: right; padding-top: 10px">
       <button
+        ng-disabled="!message"
         ng-click="postMessage()"
         class="btn btn-default fa fa-comment">
         <span>Post</span>
