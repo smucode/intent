@@ -1,8 +1,8 @@
 <div class="intent-comments">
 
   <div class="comment clearfix" ng-repeat="message in intent.messages">
-    <img
-      ng-src="http://www.gravatar.com/avatar/{{ message.user.email | gravatar }}?s=50&d=mm"
+    <gravatar
+      hash="{{ message.user.email | gravatar }}"
       style="width: 50px; float: left"
     />
     <div style="margin-left: 10px; float: left">

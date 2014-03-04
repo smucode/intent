@@ -8,8 +8,8 @@
     ng-click="showIntent(intent.id)"
     ng-repeat="(id, intent) in arr">
 
-    <img
-      ng-src="http://www.gravatar.com/avatar/{{ intent.user.email | gravatar }}?s=50&d=mm"
+    <gravatar
+      hash="{{ intent.user.email | gravatar }}"
       style="width: 50px; position: absolute; left: 10px"
     />
 

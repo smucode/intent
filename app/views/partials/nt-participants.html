@@ -1,5 +1,5 @@
 <div class="participants pad-m">
-  <div style="clear: both">
+  <div>
     <span>
       {{participantsMessage(intent.participants.length)}}
     </span>
@@ -11,9 +11,8 @@
   </div>
   <div class="thumbs">
     <span>
-      <img
-        ng-src="http://www.gravatar.com/avatar/{{ intent.user.email | gravatar }}?s=50&d=mm"
-        style="width: 50px;"
+      <gravatar
+        hash="{{ intent.user.email | gravatar }}"
       />
     </span>
     <span ng-repeat="user in intent.participants">
