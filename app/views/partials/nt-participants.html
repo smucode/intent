@@ -10,6 +10,12 @@
     </button>
   </div>
   <div class="thumbs">
+    <span>
+      <img
+        ng-src="http://www.gravatar.com/avatar/{{ intent.user.email | gravatar }}?s=50&d=mm"
+        style="width: 50px;"
+      />
+    </span>
     <span ng-repeat="user in intent.participants">
       <img
         ng-src="http://www.gravatar.com/avatar/{{ user.email | gravatar }}?s=50&d=mm"
