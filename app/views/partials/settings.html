@@ -2,11 +2,34 @@
 
   <h3>Settings</h3>
 
-  <div class="recent-group" style="padding: 10px 0">
+  <div style="padding: 10px 0">
     <button
       class="recent-button"
       ng-click="logout()">
       Logout
+    </button>
+  </div>
+
+  <div style="padding: 10px 0">
+    <button
+      class="recent-button"
+      ng-click="login('SMU', 'stig.murberg@gmail.com')">
+      Log in as SMU
+    </button>
+    <button
+      class="recent-button"
+      ng-click="login('KENO', 'ken@glxn.net')">
+      Log in as KENO
+    </button>
+    <button
+      class="recent-button"
+      ng-click="login('Lyapunov', 'jontore@gmail.com')">
+      Log in as Lyapunov
+    </button>
+    <button
+      class="recent-button"
+      ng-click="login('SpaceInvader', 'jeanfric@cisco.com')">
+      Log in as SpaceInvader
     </button>
   </div>
 

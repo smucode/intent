@@ -10,10 +10,10 @@ module.exports = (grunt) ->
   exec = require("child_process").exec
   spawn = require("child_process").spawn
   inquirer = require("inquirer")
-  
+
   # Load grunt tasks automatically
   require("load-grunt-tasks") grunt
-  
+
   # Time how long tasks take. Can help when optimizing build times
   require("time-grunt") grunt
   logExec = (err, stdout, stderr) ->
@@ -33,10 +33,10 @@ module.exports = (grunt) ->
   
   # Define the configuration for all the tasks
   grunt.initConfig
-    
+
     # Project settings
     yeoman:
-      
+
       # configurable paths
       app: require("./bower.json").appPath or "app"
       dist: "dist"
@@ -63,7 +63,6 @@ module.exports = (grunt) ->
       js:
         options:
           spawn: false
-
         files: [
           "lib/**/*.js"
           "test/lib_spec/**/*.js"
@@ -115,7 +114,6 @@ module.exports = (grunt) ->
           livereload: true
           nospawn: true #Without this option specified express won't be reloaded
 
-    
     # Make sure code styles are up to par and there are no obvious mistakes
     jshint:
       options:
@@ -130,7 +128,6 @@ module.exports = (grunt) ->
 
       all: []
 
-    
     # Empties folders to start fresh
     clean:
       dist:
@@ -158,7 +155,6 @@ module.exports = (grunt) ->
       bower: "app/bower_components"
       npm: "node_modules"
 
-    
     # Add vendor prefixed styles
     autoprefixer:
       options:
@@ -172,7 +168,6 @@ module.exports = (grunt) ->
           dest: ".tmp/styles/"
         ]
 
-    
     # Automatically inject Bower components into the app
     "bower-install":
       app:
@@ -180,7 +175,6 @@ module.exports = (grunt) ->
         ignorePath: "<%= yeoman.app %>/"
         exclude: ["bootstrap-sass"]
 
-    
     # Compiles CoffeeScript to JavaScript
     coffee:
       options:
@@ -205,7 +199,6 @@ module.exports = (grunt) ->
           ext: ".js"
         ]
 
-    
     # Compiles Sass to CSS and generates necessary files if requested
     compass:
       options:
@@ -231,7 +224,6 @@ module.exports = (grunt) ->
         options:
           debugInfo: true
 
-    
     # Renames files for browser caching purposes
     rev:
       dist:
@@ -243,7 +235,6 @@ module.exports = (grunt) ->
             "<%= yeoman.dist %>/public/styles/fonts/*"
           ]
 
-    
     # Reads HTML for usemin blocks to enable smart builds that automatically
     # concat, minify and revision files. Creates configurations in memory so
     # additional tasks can operate on them
@@ -255,7 +246,6 @@ module.exports = (grunt) ->
       options:
         dest: "<%= yeoman.dist %>/public"
 
-    
     # Performs rewrites based on rev and the useminPrepare configuration
     usemin:
       html: [
@@ -266,7 +256,6 @@ module.exports = (grunt) ->
       options:
         assetsDirs: ["<%= yeoman.dist %>/public"]
 
-    
     # The following *-min tasks produce minified files in the dist folder
     imagemin:
       dist:
@@ -289,7 +278,7 @@ module.exports = (grunt) ->
     htmlmin:
       dist:
         options: {}
-        
+
         #collapseWhitespace: true,
         #collapseBooleanAttributes: true,
         #removeCommentsFromCDATA: true,
@@ -304,7 +293,6 @@ module.exports = (grunt) ->
           dest: "<%= yeoman.dist %>/views"
         ]
 
-    
     # Allow the use of non-minsafe AngularJS files. Automatically makes it
     # minsafe compatible so Uglify does not destroy the ng references
     ngmin:
@@ -316,13 +304,11 @@ module.exports = (grunt) ->
           dest: ".tmp/concat/scripts"
         ]
 
-    
     # Replace Google CDN references
     cdnify:
       dist:
         html: ["<%= yeoman.dist %>/views/*.html"]
 
-    
     # Copies remaining files to places other tasks can use
     copy:
       dist:
@@ -370,7 +356,6 @@ module.exports = (grunt) ->
         dest: ".tmp/styles/"
         src: "{,*/}*.css"
 
-    
     # Run some tasks in parallel to speed up the build process
     concurrent:
       server: [
@@ -389,7 +374,6 @@ module.exports = (grunt) ->
         "htmlmin"
       ]
 
-    
     # By default, your `index.html`'s <!-- Usemin block --> will take care of
     # minification. These next options are pre-configured if you do not wish
     # to use the Usemin blocks.
@@ -415,7 +399,6 @@ module.exports = (grunt) ->
     # concat: {
     #   dist: {}
     # },
-    
     # Test settings
     karma:
       unit:
@@ -528,6 +511,7 @@ module.exports = (grunt) ->
     "karma"
     "mochaTest"
   ]
+
   grunt.registerTask "build", [
     "clean:dist"
     "bower-install"
@@ -543,6 +527,7 @@ module.exports = (grunt) ->
     "rev"
     "usemin"
   ]
+  
   grunt.registerTask "deploy", ->
     cb = @async()
     q = [
@@ -575,11 +560,13 @@ module.exports = (grunt) ->
     "exec:git_status"
     "deploy"
   ]
+  
   grunt.registerTask "default", [
     "newer:jshint"
     "test"
     "build"
   ]
+
   grunt.registerTask "run-bower-install", "runs bower install as from the command line", ->
     exec = require("child_process").exec
     cb = @async()

@@ -1,15 +1,19 @@
-<div class="participants pad-m">
-  <div>
+<div class="participants">
+  <div class="clearfix">
     <span>
       {{participantsMessage(intent.participants.length)}}
     </span>
-    <button href
-      class="btn btn-default fa fa-thumbs-up"
-      ng-click="join()">
-      <span>Join</span>
+    <button
+      href
+      ng-click="join()"
+      ng-disabled="joined"
+      ng-show="user.id != intent.user.id"
+      class="btn btn-default fa fa-thumbs-up">
+      <span ng-show="joined">You are in!</span>
+      <span ng-show="!joined">Count me in!</span>
     </button>
   </div>
-  <div class="thumbs">
+  <div class="thumbs" style="padding-top: 10px;">
     <span>
       <gravatar
         hash="{{ intent.user.email | gravatar }}"
