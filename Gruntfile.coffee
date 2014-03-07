@@ -527,7 +527,7 @@ module.exports = (grunt) ->
     "rev"
     "usemin"
   ]
-  
+
   grunt.registerTask "deploy", ->
     cb = @async()
     q = [
@@ -553,6 +553,7 @@ module.exports = (grunt) ->
 
   grunt.registerTask "heroku", [
     "build"
+    "exec:git_add_dist"
     "exec:git_stash_dist"
     "exec:git_pull_dist"
     "exec:git_stash_pop_dist"
