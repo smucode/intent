@@ -16,13 +16,13 @@
   <div class="thumbs" style="padding-top: 10px;">
     <span>
       <gravatar
-        hash="{{ intent.user.email | gravatar }}"
-      />
+        hash="{{ intent.user.email | gravatar }}">
+      </gravatar>
     </span>
     <span ng-repeat="user in intent.participants">
       <gravatar
-        hash="{{ user.email | gravatar }}"
-      />
+        hash="{{ user.email | gravatar }}">
+      </gravatar>
     </span>
   </div>
 </div>
