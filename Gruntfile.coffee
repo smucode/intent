@@ -556,6 +556,7 @@ module.exports = (grunt) ->
     return
 
   grunt.registerTask "heroku", [
+    'test'
     "build"
     "exec:git_add_dist"
     "exec:git_stash_dist"
