@@ -534,17 +534,17 @@ module.exports = (grunt) ->
 
   grunt.registerTask "deploy", ->
     cb = @async()
-    grunt.silencer?.enabled = false
+    grunt.silencer.enabled = false
     q =
       name: "ok"
       default: false
       type: "confirm"
-      message: '\n' + grunt.silencer?.taskLog['exec:git_status'].join('\n') + 'Ready to deploy'
+      message: '\n' + grunt.silencer.taskLog['exec:git_status']?.join('\n') + 'Ready to deploy'
 
     inquirer.prompt q, (a) ->
       if a.ok
         grunt.log.ok "proceeding with deployment"
-        grunt.silencer?.enabled = true
+        grunt.silencer.enabled = true
         grunt.task.run [
           "exec:git_commit_dist"
           "exec:git_push_dist_heroku"

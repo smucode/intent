@@ -1,13 +1,14 @@
 module.exports = (grunt, silence = true) ->
 
+  grunt.silencer ||= {}
+
   return if grunt.option('s:off')
   unless grunt.option('s:on')
     return unless silence
 
-  grunt.silencer ||= {}
+  currentTask = null
   grunt.silencer.taskLog = {}
   grunt.silencer.enabled = true
-  currentTask = null
 
   warn_re = /\[33/
   error_re = /\[31/
