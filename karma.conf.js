@@ -23,8 +23,8 @@ module.exports = function(config) {
       'app/bower_components/chai/chai.js',
       'app/scripts/*.coffee',
       'app/scripts/**/*.coffee',
-      'test/mock/**/*.coffee',
-      'test/spec/**/*.coffee'
+      'test/app_mock/**/*.coffee',
+      'test/app_spec/**/*.coffee'
     ],
 
     // list of files / patterns to exclude

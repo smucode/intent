@@ -70,12 +70,19 @@ module.exports = function (grunt) {
       }
     },
     watch: {
+      js: {
+        options: {
+          spawn: false,
+        },
+        files: ['lib/**/*.js','test/lib_spec/**/*.js'],
+        tasks: ['default']
+      },
       coffee: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.{coffee,litcoffee,coffee.md}'],
         tasks: ['newer:coffee:dist']
       },
       coffeeTest: {
-        files: ['test/spec/{,*/}*.{coffee,litcoffee,coffee.md}'],
+        files: ['test/app_spec/{,*/}*.{coffee,litcoffee,coffee.md}'],
         tasks: ['newer:coffee:test', 'karma']
       },
       compass: {
@@ -196,9 +203,9 @@ module.exports = function (grunt) {
       test: {
         files: [{
           expand: true,
-          cwd: 'test/spec',
+          cwd: 'test/app_spec',
           src: '{,*/}*.coffee',
-          dest: '.tmp/spec',
+          dest: '.tmp/app_spec',
           ext: '.js'
         }]
       }
@@ -424,6 +431,15 @@ module.exports = function (grunt) {
         singleRun: true
       }
     },
+    mochaTest: {
+      test: {
+        options: {
+          reporter: 'spec',
+          clearRequireCache: true
+        },
+        src: ['lib/models/*.js','lib/controllers/*.js','test/lib_spec/**/*.js']
+      }
+    },
     exec: {
       git_stash_dist: { cmd: 'git stash', cwd: 'dist' },
       git_pull_dist: { cmd: 'git pull heroku master', cwd: 'dist' },
@@ -433,6 +449,16 @@ module.exports = function (grunt) {
       git_commit_dist: { cmd: 'git commit -m "heroku deploy"', cwd: 'dist' },
       git_push_dist_heroku: { cmd: 'git push heroku master', cwd: 'dist' },
       git_reset_hard_heroku_master: { cmd: 'git reset --hard heroku/master', cwd: 'dist' }
+    }
+  });
+
+  // On watch events, if the changed file is a test file then configure mochaTest to only
+  // run the tests from that file. Otherwise run all the tests
+  var mochaTestSrc = grunt.config('mochaTest.test.src');
+  grunt.event.on('watch', function(action, filepath) {
+    grunt.config('mochaTest.test.src', mochaTestSrc);
+    if (filepath.match('test/')) {
+      grunt.config('mochaTest.test.src', filepath);
     }
   });
 
@@ -479,9 +505,11 @@ module.exports = function (grunt) {
     'clean:server',
     'concurrent:test',
     'autoprefixer',
-    'karma'
+    'karma',
+    'mochaTest'
   ]);
 
+  
   grunt.registerTask('build', [
     'clean:dist',
     'bower-install',
