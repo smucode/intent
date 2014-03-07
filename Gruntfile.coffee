@@ -6,7 +6,11 @@
 # 'test/spec/{,*/}*.js'
 # use this if you want to recursively match all subfolders:
 # 'test/spec/**/*.js'
+
+
 module.exports = (grunt) ->
+  require('./lib/util/silencer')(grunt)
+
   exec = require("child_process").exec
   spawn = require("child_process").spawn
   inquirer = require("inquirer")
@@ -30,7 +34,7 @@ module.exports = (grunt) ->
     daemon.unref()
     return
 
-  
+
   # Define the configuration for all the tasks
   grunt.initConfig
 
@@ -454,7 +458,7 @@ module.exports = (grunt) ->
         cmd: "git reset --hard heroku/master"
         cwd: "dist"
 
-  
+
   # On watch events, if the changed file is a test file then configure mochaTest to only
   # run the tests from that file. Otherwise run all the tests
   mochaTestSrc = grunt.config("mochaTest.test.src")
@@ -463,7 +467,7 @@ module.exports = (grunt) ->
     grunt.config "mochaTest.test.src", filepath  if filepath.match("test/")
     return
 
-  
+
   # Used for delaying livereload until after server has restarted
   grunt.registerTask "wait", ->
     grunt.log.ok "Waiting for server reload..."
@@ -562,7 +566,7 @@ module.exports = (grunt) ->
     "exec:git_status"
     "deploy"
   ]
-  
+
   grunt.registerTask "default", [
     "newer:jshint"
     "test"
