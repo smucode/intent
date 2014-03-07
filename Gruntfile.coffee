@@ -534,15 +534,17 @@ module.exports = (grunt) ->
 
   grunt.registerTask "deploy", ->
     cb = @async()
-    q = [
-      type: "confirm"
+    grunt.silencer?.enabled = false
+    q =
       name: "ok"
-      message: grunt.silencer?.taskLog['exec:git_status'] + "\n\nReady to deploy"
       default: false
-    ]
+      type: "confirm"
+      message: '\n' + grunt.silencer?.taskLog['exec:git_status'].join('\n') + 'Ready to deploy'
+
     inquirer.prompt q, (a) ->
       if a.ok
         grunt.log.ok "proceeding with deployment"
+        grunt.silencer?.enabled = true
         grunt.task.run [
           "exec:git_commit_dist"
           "exec:git_push_dist_heroku"
@@ -552,7 +554,6 @@ module.exports = (grunt) ->
         grunt.task.run ["exec:git_reset_hard_heroku_master"]
       cb()
       return
-
     return
 
   grunt.registerTask "heroku", [
