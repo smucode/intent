@@ -422,6 +422,10 @@ module.exports = (grunt) ->
         cmd: "git stash"
         cwd: "dist"
 
+      git_fetch_dist:
+        cmd: "git fetch heroku"
+        cwd: "dist"
+
       git_pull_dist:
         cmd: "git pull heroku master"
         cwd: "dist"
@@ -429,10 +433,6 @@ module.exports = (grunt) ->
       git_stash_pop_dist:
         cmd: "git stash pop"
         cwd: "dist"
-        exitCode: [
-          0
-          1
-        ]
 
       git_add_dist:
         cmd: "git add -A"
@@ -555,6 +555,7 @@ module.exports = (grunt) ->
     "build"
     "exec:git_add_dist"
     "exec:git_stash_dist"
+    "exec:git_fetch_dist"
     "exec:git_pull_dist"
     "exec:git_stash_pop_dist"
     "exec:git_add_dist"
