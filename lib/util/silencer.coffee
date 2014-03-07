@@ -15,7 +15,9 @@ module.exports = (grunt) ->
     grunt.silencer.last = str
     grunt.silencer.all.unshift str
 
-    if str.match(error_re) or str.match(warn_re) or str.match(underline_re)
+    if (str.match(error_re) or str.match(warn_re)) and str.match(/abort|warn|err|fail/i)
+      str = '\n' + str + '\n'
+    else if str.match(underline_re)
       str = '\n' + str + '\n'
     else
       str = '.'
