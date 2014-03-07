@@ -5,26 +5,19 @@ module.exports = (grunt) ->
   grunt.silencer ||= {}
   grunt.silencer.all = []
 
-  failure = false
-
-  info_re = /\[32/
   warn_re = /\[33/
   error_re = /\[31/
   underline_re = /\[4m/
 
   grunt.util.hooker.hook process.stdout, 'write', (str) ->
-    str = str.toString()
+    str = str.toString().trim()
 
     grunt.silencer.last = str
     grunt.silencer.all.unshift str
 
-    if str.match? error_re
-      failure = true
-      str = '\n' + str
-    else if str.match?(warn_re) or str.match?(underline_re)
-      str = '\n' + str
+    if str.match(error_re) or str.match(warn_re) or str.match(underline_re)
+      str = '\n' + str + '\n'
     else
-      str = str.replace /^\w*/, ''
-      str = '.' unless failure
+      str = '.'
 
     return grunt.util.hooker.filter this, [str]
