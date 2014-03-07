@@ -23,7 +23,7 @@ module.exports = function(config) {
       'app/bower_components/chai/chai.js',
       'app/scripts/*.coffee',
       'app/scripts/**/*.coffee',
-      'test/app_mock/**/*.coffee',
+      // 'test/app_mock/**/*.coffee',
       'test/app_spec/**/*.coffee'
     ],
 
