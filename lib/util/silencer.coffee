@@ -2,6 +2,9 @@ module.exports = (grunt) ->
 
   return unless grunt.option('silence')
 
+  grunt.silencer ||= {}
+  grunt.silencer.all = []
+
   failure = false
 
   info_re = /\[32/
@@ -11,6 +14,9 @@ module.exports = (grunt) ->
 
   grunt.util.hooker.hook process.stdout, 'write', (str) ->
     str = str.toString()
+
+    grunt.silencer.last = str
+    grunt.silencer.all.unshift str
 
     if str.match? error_re
       failure = true
