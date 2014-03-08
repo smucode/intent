@@ -20,6 +20,7 @@ module.exports = (grunt) ->
 
   # Time how long tasks take. Can help when optimizing build times
   require("time-grunt") grunt
+
   logExec = (err, stdout, stderr) ->
     grunt.log.writeln stdout
     grunt.log.error stderr  if stderr
@@ -27,7 +28,8 @@ module.exports = (grunt) ->
     return
 
   mongod = ->
-    grunt.log.writeln "starting mongod"
+    #make this look like a task for the log, have not found a way to spawn a task that does unref and keeps child attached to the terminal
+    grunt.log.header 'Running "mongod"'
     daemon = spawn("mongod", [],
       stdio: "ignore" #all output is to /usr/local/var/log/mongodb/mongo.log anyway
     )
