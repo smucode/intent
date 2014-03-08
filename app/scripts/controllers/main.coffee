@@ -3,9 +3,6 @@
 angular.module('intentApp')
   .controller 'MainCtrl', ($scope, $location, md5, intentProxy, displayUtil) ->
 
-    $scope.formatType = (type) ->
-      if type is 'intent' then 'is' else 'wants to'
-
     intentProxy.list (intents) ->
       $scope.intents = intents
 

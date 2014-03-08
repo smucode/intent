@@ -5,7 +5,6 @@ angular.module('intentApp')
     restrict: 'A'
     link: (scope, element, attrs) ->
       name = scope.intent.user.id
-      type = scope.formatType(scope.intent.type)
       activity = scope.intent.activity
-      element.text "#{name} #{type} #{activity}"
+      element.text "#{name} is #{activity}"
   )

@@ -20,10 +20,6 @@ angular.module('intentApp', ['ngRoute', 'ngMd5'])
         templateUrl: 'partials/create-intent.html'
         controller: 'CreateIntentCtrl'
 
-      .when '/select-activity',
-        templateUrl: 'partials/select-activity.html'
-        controller: 'SelectActivityCtrl'
-
       .when '/select-date',
         templateUrl: 'partials/select-date.html'
         controller: 'SelectDateCtrl'

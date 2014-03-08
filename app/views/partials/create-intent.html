@@ -1,21 +1,37 @@
-<div class="create-intent row" style="margin: 0 10px">
+<div class="row" style="margin: 0 10px; text-align: center">
+  <div>
 
-  <h3>
-    So, what's your intention?
-  </h3>
+    <h3>
+      {{title}} {{intent.activity}}...
+    </h3>
 
-  <button
-    class="recent-button"
-    style="font-size: 20px"
-    ng-click="create('intent')">
-    I am...
-  </button>
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        ng-model="intent.activity"
+        placeholder="{{label}}..."
+      />
+    </div>
 
-  <button
-    class="recent-button"
-    style="font-size: 20px"
-    ng-click="create('desire')">
-    I want to...
-  </button>
+    <div>
+      <button
+        ng-click="next()"
+        class="btn btn-primary"
+        style="font-size: 20px"
+        ng-disabled="!intent.activity">
+        Next
+      </button>
+    </div>
 
+    <div class="recent-group" style="padding: 10px 0">
+      <button
+        class="recent-button"
+        ng-repeat="activity in recent"
+        ng-click="setActivity(activity)">
+        {{activity}}
+      </button>
+    </div>
+
+  </div>
 </div>
