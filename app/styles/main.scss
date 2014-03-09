@@ -1,8 +1,9 @@
+$fa-font-path: "/bower_components/components-font-awesome/fonts/";
+
 @import "sass-bootstrap/lib/bootstrap";
+@import "components-font-awesome/scss/font-awesome";
 
 @import url(http://fonts.googleapis.com/css?family=Carrois+Gothic);
-
-/* Put your CSS here */
 
 $orange: #f39c12;
 $carrot: #e67e22;
