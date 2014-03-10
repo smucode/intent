@@ -1,0 +1,38 @@
+<div class="row" style="margin: 0 10px">
+  <h3>Where is this happening?</h3>
+
+  <div class="col-md-8 col-md-offset-2">
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        ng-model="intent.place"
+        placeholder="The location of the event"
+      />
+
+      <button
+        style="margin-top: 5px;"
+        ng-click="next()"
+        class="btn btn-primary btn-block"
+        ng-disabled="!intent.place">
+        Finish!
+      </button>
+    </div>
+
+    <h4>Recent places</h4>
+
+    <div class="form-group">
+      <button
+        class="btn btn-default btn-block"
+        ng-click="setLocation('Oslo Mek')">
+        Oslo Mek
+      </button>
+      <button
+        class="btn btn-default btn-block"
+        ng-click="setLocation('Knapstad Samfunnshus')">
+        Knapstad Samfunnshus
+      </button>
+    </div>
+
+  </div>
+</div>

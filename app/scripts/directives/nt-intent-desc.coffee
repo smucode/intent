@@ -6,5 +6,5 @@ angular.module('intentApp')
     link: (scope, element, attrs) ->
       name = scope.intent.user.id
       activity = scope.intent.activity
-      element.text "#{name} is #{activity}"
+      element.text "#{name} #{activity}"
   )

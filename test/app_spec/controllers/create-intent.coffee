@@ -17,11 +17,6 @@ describe 'Controller: CreateIntentCtrl', () ->
       $location: location
     }
 
-  it 'should define empty intent and set title and input label on construction', ->
-    expect(scope.intent).toBeDefined()
-    expect(scope.title).toBe('I am')
-    expect(scope.label).toBe('What are you doing?')
-
   it 'should set activity and go to next', ->
     spyOn(scope, 'next')
     expect(scope.intent.activity).not.toBeDefined()

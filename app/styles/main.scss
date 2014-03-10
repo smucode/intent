@@ -57,6 +57,10 @@ body {
   padding-top: 48px;
 }
 
+input, button {
+  font-size: 14px;
+}
+
 .bg1 {
   background: $h1bg;
 }
@@ -95,8 +99,13 @@ h2 {
 
 h3 {
   text-align: center;
-  padding: 20px;
+  padding: 30px;
   margin: 0;
+}
+
+h4 {
+  padding: 20px 0 0 0;
+  text-align: center;
 }
 
 .main {
@@ -158,17 +167,6 @@ nav.navbar {
   }
 }
 
-.recent-button {
-  border: 0;
-  width: 100%;
-  color: white;
-  padding: 10px;
-  display: block;
-  margin-top: 10px;
-  background: $btn;
-  border-radius: 5px;
-}
-
 .timepicker {
   padding: 10px 0;
   .hours, .minutes {
@@ -197,7 +195,7 @@ nav.navbar {
     padding: 10px;
     border-bottom: 1px solid #ddd;
     .name {
-      color: $emerald;
+      color: $wet_asphalt;
     }
     .body {
     }

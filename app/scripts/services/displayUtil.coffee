@@ -15,3 +15,6 @@ angular.module('intentApp')
       return 'Today' if l8r is moment().format('dddd, MMMM Do')
       return 'Tomorrow' if l8r is moment().add('days', 1).format('dddd, MMMM Do')
       return moment(date).calendar('dddd')
+
+    formatDate2: (date) ->
+      moment(date).toDate().toLocaleDateString()

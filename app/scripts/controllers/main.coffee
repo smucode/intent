@@ -10,3 +10,4 @@ angular.module('intentApp')
       $location.path "intent/#{id}"
 
     $scope.formatDate = displayUtil.formatDate
+    $scope.formatDate2 = displayUtil.formatDate2

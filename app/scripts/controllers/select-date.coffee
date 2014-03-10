@@ -4,11 +4,6 @@ angular.module('intentApp')
   .controller 'SelectDateCtrl', ($scope, $location, pending) ->
     $scope.intent = pending.get()
 
-    if $scope.intent.type is 'intent'
-      $scope.title = "When are you #{$scope.intent.activity}?"
-    else
-      $scope.title = "When do you want to #{$scope.intent.activity}?"
-
     $scope.dates = [0...7].map (i) ->
       m = moment().add('days', i)
       id: m.toISOString()

@@ -5,11 +5,6 @@ angular.module('intentApp')
     $scope.intent = pending.get()
     $scope.time = {}
 
-    if $scope.intent.type is 'intent'
-      $scope.title = "What time are you #{$scope.intent.activity}?"
-    else
-      $scope.title = "What time do you want to #{$scope.intent.activity}?"
-
     $scope.next = (time) ->
       $scope.intent.date = moment($scope.intent.date)
         .hour($scope.time.hours)
@@ -18,5 +13,5 @@ angular.module('intentApp')
 
       $scope.intent.time = $scope.time
 
-      intentProxy.create $scope.intent, ->
-        $location.path '/'
+      pending.set $scope.intent
+      $location.path 'select-location'

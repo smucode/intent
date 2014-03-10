@@ -1,35 +1,42 @@
-<div class="row" style="margin: 0 10px; text-align: center">
-  <div>
+<div class="row" style="margin: 0 10px">
+  <h3>What are you doing?</h3>
 
-    <h3>
-      {{title}} {{intent.activity}}...
-    </h3>
-
+  <div class="col-md-8 col-md-offset-2">
     <div class="form-group">
       <input
         type="text"
         class="form-control"
         ng-model="intent.activity"
-        placeholder="{{label}}..."
+        placeholder="Some words about what you're doing"
       />
-    </div>
 
-    <div>
       <button
+        style="margin-top: 5px;"
         ng-click="next()"
-        class="btn btn-primary"
-        style="font-size: 20px"
+        class="btn btn-primary btn-block"
         ng-disabled="!intent.activity">
-        Next
+        Next...
       </button>
     </div>
 
-    <div class="recent-group" style="padding: 10px 0">
+    <h4>Recent activities</h4>
+
+    <div class="form-group">
       <button
-        class="recent-button"
+        class="btn btn-default btn-block"
         ng-repeat="activity in recent"
         ng-click="setActivity(activity)">
         {{activity}}
+      </button>
+      <button
+        class="btn btn-default btn-block"
+        ng-click="setActivity('Playing golf')">
+        Playing golf
+      </button>
+      <button
+        class="btn btn-default btn-block"
+        ng-click="setActivity('Biking the forrests')">
+        Biking the forrests
       </button>
     </div>
 

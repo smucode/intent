@@ -7,5 +7,10 @@ angular.module('intentApp')
       date = displayUtil.formatDate(scope.intent.date)
       hours = scope.intent.time.hours
       mins = scope.intent.time.minutes
-      element.text "#{date} at #{hours}:#{mins}"
+      name = scope.intent.user.id
+      console.log attrs.dt
+      if attrs.dt
+        element.text "#{date}, #{hours}:#{mins}"
+      else
+        element.text "#{hours}:#{mins}"
   )

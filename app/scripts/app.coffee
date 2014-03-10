@@ -28,6 +28,10 @@ angular.module('intentApp', ['ngRoute', 'ngMd5'])
         templateUrl: 'partials/select-time.html'
         controller: 'SelectTimeCtrl'
 
+      .when '/select-location',
+        templateUrl: 'partials/select-location.html'
+        controller: 'SelectLocationCtrl'
+
       .when '/intent/:id',
         templateUrl: 'partials/intent.html'
         controller: 'IntentCtrl'

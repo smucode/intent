@@ -6,9 +6,20 @@
   </h2>
 
   <div style="text-align: center;">
-    <h3 nt-intent-desc></h3>
+    <h3>{{intent.activity}}</h3>
     <div style="text-align: center; padding-bottom: 20px;">
-      <span nt-intent-when></span>
+      <span>
+        <i class="fa fa-clock-o"></i>
+        <span nt-intent-when dt="true"></span>
+      </span>
+
+      <span
+        ng-show="intent.location"
+        style="padding-left: 10px;">
+        <i class="fa fa-location-arrow"></i>
+        <span>{{intent.location}}</span>
+      </span>
+
     </div>
   </div>
 

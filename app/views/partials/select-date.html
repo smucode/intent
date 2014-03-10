@@ -1,15 +1,12 @@
 <div class="row" style="margin: 0 10px">
   <div
-    class="col-md-8 col-md-offset-2"
-    style="text-align: center; padding: 10px 0 30px 0;">
+    class="col-md-8 col-md-offset-2">
 
-    <h3>
-      {{title}}
-    </h3>
+    <h3>When is it happening?</h3>
 
-    <div class="recent-group" style="padding: 10px 0">
+    <div class="form-group">
       <button
-        class="recent-button"
+        class="btn btn-primary btn-block"
         ng-click="next(date.id)"
         ng-repeat="date in dates">
         {{date.day}}

@@ -6,8 +6,6 @@ angular.module('intentApp')
     # $scope.recent = recents.get()
 
     $scope.intent = {}
-    $scope.title = 'I am'
-    $scope.label = 'What are you doing?'
 
     $scope.setActivity = (activity) ->
       $scope.intent.activity = activity
