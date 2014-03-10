@@ -232,3 +232,13 @@ nav.navbar {
 .show-intent {
   background: white;
 }
+
+.recents {
+  a {
+    display: block;
+    padding: 10px;
+  }
+  a:nth-child(odd) {
+    background: #fafafa;
+  }
+}
