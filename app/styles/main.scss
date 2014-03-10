@@ -57,8 +57,9 @@ body {
   padding-top: 48px;
 }
 
-input, button {
-  font-size: 14px;
+button.btn,
+input.form-control,
+textarea.form-control {
 }
 
 .bg1 {

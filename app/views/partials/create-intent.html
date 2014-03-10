@@ -1,44 +1,53 @@
-<div class="row" style="margin: 0 10px">
-  <h3>What are you doing?</h3>
+<div
+  class="clearfix"
+  style="display: table; width: 100%;">
+  <i
+    style="font-size: 48px; padding: 20px; color: #2c3e50;"
+    class="fa fa-plus-circle">
+  </i>
+  <h3
+    style="
+      padding: 0;
+      margin: 0;
+      display: table-cell;
+      vertical-align: middle;
+      text-align: left;
+      width: 100%;
+      padding-right: 25px;
+    ">
+    Create New Intent
+  </h3>
+</div>
 
-  <div class="col-md-8 col-md-offset-2">
-    <div class="form-group">
-      <input
-        type="text"
-        class="form-control"
-        ng-model="intent.activity"
-        placeholder="Some words about what you're doing"
-      />
+<div
+  style="display: table; width: 100%; padding: 0 20px;">
+    <label>
+      What are you doing, or what do you want to do?
+    </label>
+    <textarea
+      class="form-control"
+      ng-model="intent.activity"
+    ></textarea>
+</div>
 
-      <button
-        style="margin-top: 5px;"
-        ng-click="next()"
-        class="btn btn-primary btn-block"
-        ng-disabled="!intent.activity">
-        Next...
-      </button>
-    </div>
+<div style="text-align: right; margin: 20px 20px 0 0;">
+  <button
+    ng-click="next()"
+    class="btn btn-primary"
+    ng-disabled="!intent.activity">
+    Next...
+  </button>
+</div>
 
-    <h4>Recent activities</h4>
+<h2 class="bg2" style="margin-top: 20px;">
+  Reuse recent intent:
+</h2>
 
-    <div class="form-group">
-      <button
-        class="btn btn-default btn-block"
-        ng-repeat="activity in recent"
-        ng-click="setActivity(activity)">
-        {{activity}}
-      </button>
-      <button
-        class="btn btn-default btn-block"
-        ng-click="setActivity('Playing golf')">
-        Playing golf
-      </button>
-      <button
-        class="btn btn-default btn-block"
-        ng-click="setActivity('Biking the forrests')">
-        Biking the forrests
-      </button>
-    </div>
-
-  </div>
+<div style="padding: 20px">
+  <a href style="display: block; padding-bottom: 10px;" ng-click="intent.activity='I\'m heading to the driving range to whack some drives...'">
+    I'm heading to the driving range to whack some drives...
+  </a>
+  <a href style="display: block; padding-bottom: 10px;" ng-click="intent.activity='Running a hefty 20k trail in Østmarka. (Not for pussies.)'">
+    Running a hefty 20k trail in Østmarka. (Not for pussies.)
+  </a>
 </div>
