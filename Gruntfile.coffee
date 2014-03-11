@@ -541,7 +541,7 @@ module.exports = (grunt) ->
       name: "ok"
       default: false
       type: "confirm"
-      message: '\n' + grunt.silencer.taskLog['exec:git_status']?.join('\n') + 'Ready to deploy'
+      message: '\n' + grunt.silencer.taskLog?['exec:git_status']?.join('\n') + 'Ready to deploy'
 
     inquirer.prompt q, (a) ->
       if a.ok
