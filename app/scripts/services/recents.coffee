@@ -4,6 +4,8 @@ angular.module('intentApp')
   .factory 'recents', (jsonStore) ->
 
     recent = jsonStore.get('recent') || []
+    if not _.isArray recent
+      recent = []
 
     get: () ->
       recent
