@@ -232,3 +232,17 @@ nav.navbar {
 .show-intent {
   background: white;
 }
+
+.recents {
+  margin-top: 20px;
+
+  span {
+    display: block; padding: 20px;
+  }
+  .odd {
+    background-color: #ffffff; 
+  }
+  .even {
+    background-color: #ececec; 
+  }
+}

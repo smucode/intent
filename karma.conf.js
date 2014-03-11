@@ -11,6 +11,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'app/bower_components/jquery/dist/jquery.js',
       'app/bower_components/angular/angular.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
       'app/bower_components/angular-resource/angular-resource.js',
@@ -23,12 +24,23 @@ module.exports = function(config) {
       'app/bower_components/chai/chai.js',
       'app/scripts/*.coffee',
       'app/scripts/**/*.coffee',
+      'app/views/**/*.html',
       // 'test/app_mock/**/*.coffee',
       'test/app_spec/**/*.coffee'
     ],
 
     // list of files / patterns to exclude
     exclude: [],
+
+    preprocessors: {
+      '**/*.coffee': 'coffee',
+      '**/*.html': 'ng-html2js'
+    },
+
+    ngHtml2JsPreprocessor: {
+      stripPrefix: 'app/views/',
+      moduleName: 'views'
+    },
 
     // web server port
     port: 8080,

@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('intentApp')
-  .controller 'SelectLocationCtrl', ($scope, $location, pending, intentProxy) ->
+  .controller 'SelectLocationCtrl', ($scope, $location, pending, recents, intentProxy) ->
 
     $scope.intent = pending.get()
     $scope.label = 'What are you doing?'
@@ -12,4 +12,5 @@ angular.module('intentApp')
 
     $scope.next = ->
       intentProxy.create $scope.intent, ->
+        recents.set $scope.intent
         $location.path '/'

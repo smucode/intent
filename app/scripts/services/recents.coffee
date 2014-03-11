@@ -3,14 +3,14 @@
 angular.module('intentApp')
   .factory 'recents', (jsonStore) ->
 
-    recent = jsonStore.get('recent') || {}
+    recent = jsonStore.get('recent') || []
 
-    get: (type) ->
-      recent[type]
+    get: () ->
+      recent
 
     set: (intent) ->
-      arr = (recent[intent.type] || []).filter (item) ->
+      arr = (recent || []).filter (item) ->
         item isnt intent.activity
       arr.unshift intent.activity
-      recent[intent.type] = arr.slice 0, 5
+      recent = arr.slice 0, 5
       jsonStore.set 'recent', recent
