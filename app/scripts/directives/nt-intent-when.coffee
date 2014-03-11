@@ -8,7 +8,6 @@ angular.module('intentApp')
       hours = scope.intent.time.hours
       mins = scope.intent.time.minutes
       name = scope.intent.user.id
-      console.log attrs.dt
       if attrs.dt
         element.text "#{date}, #{hours}:#{mins}"
       else
