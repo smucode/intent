@@ -237,10 +237,14 @@ nav.navbar {
   margin-top: 20px;
 
   span {
-    display: block; 
+    display: block;
     padding: 20px;
+    cursor: pointer;
   }
   span:nth-child(odd) {
     background: #fafafa;
+  }
+  span:hover {
+    background: $clouds;
   }
 }

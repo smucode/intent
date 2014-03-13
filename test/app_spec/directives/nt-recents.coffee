@@ -10,11 +10,16 @@ describe 'Directive: nt-recents', ->
   beforeEach module('views')
   beforeEach inject ($rootScope, $compile, recents) ->
     spyOn(recents, 'get').andReturn(mockRecents)
-    elm = angular.element('<nt-recents></nt-recents>')
+    elm = angular.element('<nt-recents header="Foo"></nt-recents>')
     scope = $rootScope
     $compile(elm) scope
     scope.$digest()
-  
+
+  it "should set header", ->
+    text = elm.find('div.recents h2').text()
+    expect(text).toBe('Foo')
+
+
   it 'should fetch recents and put in scope on construct', inject (recents) ->
     expect(recents.get).toHaveBeenCalled()
     expect(scope.recents).toBe(mockRecents)
@@ -23,7 +28,7 @@ describe 'Directive: nt-recents', ->
     expect(elm.find("div.recents").length).toBe 1
     expect(elm.find('div.recents h2.bg2').length).toBe 1
     expect(elm.find('div.recents span').length).toBe 0
-    
+
   it "should render list of recents", ->
     expect(elm.find("div.recents").length).toBe 1
     expect(elm.find('div.recents h2.bg2').length).toBe 1
@@ -31,7 +36,7 @@ describe 'Directive: nt-recents', ->
     scope.$apply ->
       scope.recents = ['foo','bar','baz']
 
-    elms = elm.find('div.recents span')  
+    elms = elm.find('div.recents span')
     expect(elms.length).toBe 3
     expect(elms.eq(0).text().trim()).toBe 'foo'
     expect(elms.eq(1).text().trim()).toBe 'bar'
