@@ -7,3 +7,5 @@ angular.module('intentApp')
     controller: ($scope, recents, $attrs) ->
       $scope.recents = recents.get()
       $scope.header = $attrs.header
+      $scope.recentSelected = (recent) ->
+        $scope.intent.activity = recent

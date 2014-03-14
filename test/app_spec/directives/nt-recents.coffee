@@ -12,6 +12,7 @@ describe 'Directive: nt-recents', ->
     spyOn(recents, 'get').andReturn(mockRecents)
     elm = angular.element('<nt-recents header="Foo"></nt-recents>')
     scope = $rootScope
+    scope.intent = activity: null
     $compile(elm) scope
     scope.$digest()
 
@@ -41,3 +42,12 @@ describe 'Directive: nt-recents', ->
     expect(elms.eq(0).text().trim()).toBe 'foo'
     expect(elms.eq(1).text().trim()).toBe 'bar'
     expect(elms.eq(2).text().trim()).toBe 'baz'
+
+  it "should assign recents.intent on click", ->
+    expect(scope.intent.activity).toBe null
+
+    scope.$apply -> scope.recents = ['foo']
+
+    elm.find('div.recents span').click()
+
+    expect(scope.intent.activity).toBe 'foo'
