@@ -5,7 +5,7 @@ angular.module('intentApp')
     templateUrl: 'partials/nt-recents.html'
     restrict: 'E'
     controller: ($scope, recents, $attrs) ->
-      $scope.recents = recents.get()
+      $scope.recents = recents.get $attrs.attr
       $scope.header = $attrs.header
 
       $scope.recentSelected = (recent) ->

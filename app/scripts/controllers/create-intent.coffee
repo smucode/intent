@@ -3,8 +3,6 @@
 angular.module('intentApp')
   .controller 'CreateIntentCtrl', ($scope, $location, pending) ->
 
-    # $scope.recent = recents.get()
-
     $scope.intent = {}
 
     $scope.setActivity = (activity) ->

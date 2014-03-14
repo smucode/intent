@@ -13,7 +13,9 @@ describe 'Service: recents', () ->
   beforeEach module ($provide) ->
     arr = []
     $provide.factory 'jsonStore', ->
-      get: (k) -> ['foo']
+      get: (k) ->
+        key = k
+        key: ['foo']
       set: (k, v) ->
         key = k
         val = v
@@ -23,8 +25,12 @@ describe 'Service: recents', () ->
     recents = _recents_
 
   it 'gets on initialize', ->
-    expect(recents.get()).toEqual ['foo']
+    expect(recents.get('key')).toEqual ['foo']
 
   it 'sets and gets', ->
-    recents.set activity: 'bar'
-    expect(recents.get()).toEqual ['bar', 'foo']
+    recents.set 'key', 'bar'
+    expect(recents.get('key')).toEqual ['bar', 'foo']
+
+  it 'should not save dupes', ->
+    recents.set 'key', 'foo'
+    expect(recents.get('key')).toEqual ['foo']

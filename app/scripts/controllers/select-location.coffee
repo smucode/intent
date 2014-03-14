@@ -12,5 +12,6 @@ angular.module('intentApp')
 
     $scope.next = ->
       intentProxy.create $scope.intent, ->
-        recents.set $scope.intent
+        recents.set 'intent.activity', $scope.intent.activity
+        recents.set 'intent.location', $scope.intent.location
         $location.path '/'

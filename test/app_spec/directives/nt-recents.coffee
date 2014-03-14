@@ -20,7 +20,6 @@ describe 'Directive: nt-recents', ->
     text = elm.find('div.recents h2').text()
     expect(text).toBe('Foo')
 
-
   it 'should fetch recents and put in scope on construct', inject (recents) ->
     expect(recents.get).toHaveBeenCalled()
     expect(scope.recents).toBe(mockRecents)

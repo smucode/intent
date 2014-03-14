@@ -2,17 +2,17 @@
 
 angular.module('intentApp')
   .factory 'recents', (jsonStore) ->
+    storeName = 'recents'
 
-    recent = jsonStore.get('recent') || []
-    if not _.isArray recent
-      recent = []
+    recents = jsonStore.get(storeName) || {}
+    if _.isArray recents then recents = {}
 
-    get: () ->
-      recent
+    get: (key) ->
+      recents[key]
 
-    set: (intent) ->
-      arr = (recent || []).filter (item) ->
-        item isnt intent.activity
-      arr.unshift intent.activity
-      recent = arr.slice 0, 5
-      jsonStore.set 'recent', recent
+    set: (key, val) ->
+      arr = recents[key] || []
+      arr.unshift(val) unless ~arr.indexOf(val)
+      arr = arr.slice 0, 5
+      recents[key] = arr
+      jsonStore.set storeName, recents
