@@ -10,7 +10,7 @@ describe 'Directive: nt-recents', ->
   beforeEach module('views')
   beforeEach inject ($rootScope, $compile, recents) ->
     spyOn(recents, 'get').andReturn(mockRecents)
-    elm = angular.element('<nt-recents header="Foo"></nt-recents>')
+    elm = angular.element('<nt-recents header="Foo" attr="intent.activity"></nt-recents>')
     scope = $rootScope
     scope.intent = activity: null
     $compile(elm) scope
@@ -47,7 +47,6 @@ describe 'Directive: nt-recents', ->
     expect(scope.intent.activity).toBe null
 
     scope.$apply -> scope.recents = ['foo']
-
     elm.find('div.recents span').click()
 
     expect(scope.intent.activity).toBe 'foo'
