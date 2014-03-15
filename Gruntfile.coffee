@@ -424,20 +424,16 @@ module.exports = (grunt) ->
         ]
 
     exec:
-      git_stash_dist:
-        cmd: "git stash"
-        cwd: "dist"
-
       git_fetch_dist:
         cmd: "git fetch heroku"
         cwd: "dist"
 
-      git_pull_dist:
-        cmd: "git pull heroku master"
+      git_reset_hard_heroku_master:
+        cmd: "git reset --hard heroku/master"
         cwd: "dist"
 
-      git_stash_pop_dist:
-        cmd: "git stash pop"
+      git_pull_dist:
+        cmd: "git pull heroku master"
         cwd: "dist"
 
       git_add_dist:
@@ -456,9 +452,7 @@ module.exports = (grunt) ->
         cmd: "git push heroku master"
         cwd: "dist"
 
-      git_reset_hard_heroku_master:
-        cmd: "git reset --hard heroku/master"
-        cwd: "dist"
+      
 
 
   # On watch events, if the changed file is a test file then configure mochaTest to only
@@ -560,6 +554,7 @@ module.exports = (grunt) ->
 
   grunt.registerTask "heroku", [
     "exec:git_fetch_dist"
+    "exec:git_reset_hard_heroku_master"
     "exec:git_pull_dist"
     'test'
     "build"
