@@ -5,7 +5,7 @@ describe 'Controller: SelectLocationCtrl', () ->
   beforeEach module 'intentApp'
 
   scope = {}
-  mockIntent = 
+  mockIntent =
     activity: 'coffee and hax'
   selectLocationCtrl = {}
   pending = get: ->
@@ -36,7 +36,7 @@ describe 'Controller: SelectLocationCtrl', () ->
       scope.next()
       expect(intentProxy.create).toHaveBeenCalled()
       expect(intentProxy.create.calls[0].args[0]).toBe mockIntent
-      expect(recents.set).toHaveBeenCalledWith(mockIntent)
+      expect(recents.set).toHaveBeenCalledWith('intent.location', mockIntent.location)
 
 
 
