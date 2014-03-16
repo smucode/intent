@@ -16,14 +16,14 @@ describe 'Service: User', () ->
   assert = chai.assert
 
   it 'should return user id if user is found', ->
-    user.login
-      foo: 'bar'
-      baz: 'qux'
+    # user.login
+    #   foo: 'bar'
+    #   baz: 'qux'
 
-    assert.equal user.foo, 'bar'
-    assert.equal user.baz, 'qux'
+    # assert.equal user.foo, 'bar'
+    # assert.equal user.baz, 'qux'
 
-    user.logout()
+    # user.logout()
 
-    assert.equal user.foo, undefined
-    assert.equal user.baz, undefined
+    # assert.equal user.foo, undefined
+    # assert.equal user.baz, undefined

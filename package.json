@@ -9,6 +9,7 @@
     "connect-mongo": "~0.4.0",
     "passport": "latest",
     "passport-local": "latest",
+    "passport-facebook": "~1.0.3",
     "ejs": "~0.8.4",
     "colors": "^0.6.2"
   },

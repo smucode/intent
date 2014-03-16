@@ -1,30 +1,26 @@
 'use strict'
 
 angular.module('intentApp')
-  .factory 'user', (jsonStore) ->
+  .factory 'user', ($http, jsonStore) ->
 
-    # this crazy ass pattern is probably not a great idea...
-
-    user = jsonStore.get('authenticated_user')
-    unless _.isObject user then user = {}
-
-
-    user.toJSON = ->
-      u = {}
-      for key, val of user
-        unless key is 'login' or key is 'logout' or key is 'toJSON'
-          u[key] = val
-      u
+    user = {}
+    $http
+      method: 'GET'
+      url: "/api/users/me"
+    .success (data) ->
+        user= data
 
     user.logout = ->
-      for key, val of user
-        unless key is 'login' or key is 'logout' or key is 'toJSON'
-          delete user[key]
+      $http
+        method: 'DEL'
+        url: "/api/session"
+      .success ->
 
     user.login = (attrs) ->
-      for key, val of attrs
-        unless key is 'login' or key is 'logout' or key is 'toJSON'
-          user[key] = val
-      jsonStore.set 'authenticated_user', attrs
+      $http
+        method: 'POST'
+        url: "/api/session"
+      .success (data) ->
+        jsonStore.set 'authenticated_user', data
 
     user
