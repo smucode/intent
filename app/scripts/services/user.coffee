@@ -2,13 +2,16 @@
 
 angular.module('intentApp')
   .factory 'user', ($http, jsonStore) ->
+    
+    user = jsonStore.get('authenticated_user')
+    unless _.isObject user then user = {}
 
-    user = {}
-    $http
-      method: 'GET'
-      url: "/api/users/me"
-    .success (data) ->
-        user= data
+    user.toJSON = ->
+      u = {}
+      for key, val of user
+        unless key is 'login' or key is 'logout' or key is 'toJSON'
+          u[key] = val
+      u
 
     user.logout = ->
       $http
