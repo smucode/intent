@@ -5,9 +5,9 @@
   <div class="form-group">
     <input
       type="text"
-      ng-model="user.id"
+      ng-model="user.username"
       class="form-control"
-      placeholder="Your User ID..."
+      placeholder="Your Username..."
     />
   </div>
   <div class="form-group">
@@ -24,7 +24,7 @@
       ng-click="login()"
       class="btn btn-primary"
       style="font-size: 20px"
-      ng-disabled="!user.id || !user.email">
+      ng-disabled="!user.username || !user.email">
       Login
     </button>
   </div>

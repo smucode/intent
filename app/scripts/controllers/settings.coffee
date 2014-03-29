@@ -3,8 +3,8 @@
 angular.module('intentApp')
   .controller 'SettingsCtrl', ($scope, user, $location) ->
     $scope.logout = ->
-      user.logout()
-      $location.path 'login'
+      user.logout ->
+        $location.path '/login'
 
     $scope.login = (id, email) ->
       id ||= (Math.random() * 100000 | 0).toString(16)

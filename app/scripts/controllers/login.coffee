@@ -2,14 +2,11 @@
 
 angular.module('intentApp')
   .controller 'LoginCtrl', ($scope, $location, user) ->
-    list = -> $location.path 'list'
+    list = -> $location.path 'list'    
 
-    if user.id
-      return list()
+    user.isLoggedIn list
 
-    $scope.user =
-      id: user.id
+    $scope.user = {}
 
     $scope.login = ->
-      user.login $scope.user
-      list()
+      user.login $scope.user, list
