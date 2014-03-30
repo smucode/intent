@@ -16,7 +16,7 @@ angular.module('intentApp')
       .success (data) ->
         cb()
 
-    user.isLoggedIn = (cb) ->
+    user.verify = (cb) ->
       $http
         method: 'GET'
         url: "/api/users/me"
