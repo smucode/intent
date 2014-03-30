@@ -9,10 +9,10 @@
     ng-click="showIntent(intent.id)"
     ng-repeat="(id, intent) in arr">
 
-    <gravatar
-      hash="{{ intent.user.email | gravatar }}"
+    <fbavatar
+      uname="{{ intent.user.username }}"
       style="width: 50px; position: absolute; left: 10px">
-    </gravatar>
+    </fbavatar>
 
     <span>
       <span>{{intent.activity}}</span>

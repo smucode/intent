@@ -1,10 +1,10 @@
 <div class="intent-comments">
 
   <div class="comment clearfix" ng-repeat="message in intent.messages">
-    <gravatar
-      hash="{{ message.user.email | gravatar }}"
+    <fbavatar
+      uname="{{ message.user.username }}"
       style="width: 50px; float: left">
-    </gravatar>
+    </fbavatar>
     <div style="margin-left: 10px; float: left">
       <span class="name">{{message.user.id}}</span>
       <span class="body">{{message.body}}</span>
