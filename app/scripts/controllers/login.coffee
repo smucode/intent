@@ -7,6 +7,3 @@ angular.module('intentApp')
     user.isLoggedIn list
 
     $scope.user = {}
-
-    $scope.login = ->
-      user.login $scope.user, list
