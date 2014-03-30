@@ -11,9 +11,10 @@ describe 'Service: intentProxy', () ->
   intentProxy = null
 
   beforeEach module ($provide) ->
-    $provide.factory 'user', ->
-      data =
-        id = 'foo'
+    $provide.factory 'user', -> 
+      data: 
+        id: 'foo'
+
     $provide.factory 'intentGrouper', ->
       group: (intents) -> intents
     null
