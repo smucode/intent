@@ -3,15 +3,12 @@
 angular.module('intentApp')
   .factory 'user', ($http, jsonStore) ->
     
-    user = jsonStore.get('authenticated_user')
-    unless _.isObject user then user = {}
+    user = {}
+    _user = jsonStore.get('authenticated_user')
+    unless _.isObject _user then _user = {}
 
     user.toJSON = ->
-      u = {}
-      for key, val of user
-        unless key is 'login' or key is 'logout' or key is 'toJSON'
-          u[key] = val
-      u
+      _user
 
     user.logout = (cb) ->
       $http
@@ -50,10 +47,11 @@ angular.module('intentApp')
         method: 'GET'
         url: "/api/users/me"
       .success (data) ->
+        user.store data unless jsonStore.get('authenticated_user')?
         cb()
 
     user.store = (data) ->
-      data.id = data.username # hack to get iuser.id to work. id is reserved in the backend..
+      data.id = data.username # hack to get user.id to work. id is reserved in the backend..
       jsonStore.set 'authenticated_user', data
 
-    user
+    _.extend user, _user
