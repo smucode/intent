@@ -17,10 +17,9 @@ describe 'Controller: SettingsCtrl', () ->
       $location: location
     }
 
-  assert = chai.assert
-
   it 'should log out the authenticated user', () ->
     spyOn user, 'logout'
     scope.logout()
     expect(user.logout).toHaveBeenCalled()
-    assert.equal location.path, 'login'
+    user.logout.mostRecentCall.args[0]()
+    expect(location.path).toBe('/login')

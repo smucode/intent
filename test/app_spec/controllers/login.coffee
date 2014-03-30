@@ -8,26 +8,24 @@ describe 'Controller: LoginCtrl', () ->
   LoginCtrl = {}
 
   scope = {}
-  user = login: (@attrs) ->
+  controller = ->
+  user = verify: (cb) -> 
   location = path: (@path) ->
 
   # Initialize the controller and a mock scope
   beforeEach inject ($controller, $rootScope) ->
+    controller = $controller
     scope = $rootScope.$new()
-    LoginCtrl = $controller 'LoginCtrl', {
+    
+  it 'should verify user redirect on construct', () ->
+    spyOn(user, 'verify')
+    spyOn(location, 'path')
+    LoginCtrl = controller 'LoginCtrl', {
       user: user
       $scope: scope
       $location: location
     }
-
-  assert = chai.assert
-
-  it 'should set user and redirect', () ->
-    scope.user =
-      id: 'foo'
-      img: 'bar'
-    scope.login()
-    assert.equal user.attrs.id, 'foo'
-    assert.equal user.attrs.img, 'bar'
-    assert.equal location.path, 'list'
+    expect(user.verify).toHaveBeenCalled()
+    user.verify.mostRecentCall.args[0]()
+    expect(location.path).toHaveBeenCalledWith('list')
 
