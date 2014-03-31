@@ -13,7 +13,7 @@
       <span ng-show="!joined">Count me in!</span>
     </button>
   </div>
-  <div class="thumbs" style="padding-top: 10px;">
+  <div class="thumbs" style="padding: 10px; 0">
     <span>
       <fbavatar
         uname="{{ intent.user.username }}">
@@ -24,5 +24,6 @@
         uname="{{ user.username }}">
       </fbavatar>
     </span>
+    <fbinvite></fbinvite>
   </div>
 </div>
