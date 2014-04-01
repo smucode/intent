@@ -33,10 +33,15 @@
     <div id="fb-root"></div>
     <script>
       window.fbAsyncInit = function() {
+        var conf = {
+          dev: '1477871689092410',
+          prod: '1464272590456231'
+        };
         FB.init({
-          appId      : '1464272590456231',
-          status     : true,
-          xfbml      : true
+          // TODO: switch dev/prod profile in buildstep
+          appId: /localhost/.test(window.location.host) ? conf.dev : conf.prod,
+          status: true,
+          xfbml: true
         });
       };
 
